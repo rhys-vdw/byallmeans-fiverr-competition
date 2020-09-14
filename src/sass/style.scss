@@ -3,10 +3,31 @@
 $color-pink-light: #FFD3E2;
 $color-pink-medium: #BE5272;
 $color-pink-dark: #4D1727;
+$color-white: white;
 
 body {
   text-align: center;
   font-family: "Macan";
+  font-size: 20px;
+}
+
+.Button {
+  display: inline-block;
+  border-radius: 6px;
+  min-width: 240px;
+  padding: 16px;
+
+  background-color: $color-pink-dark;
+
+  font-family: Macan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+
+  &, &:active {
+    color: $color-white;
+    text-decoration: none;
+  }
 }
 
 .Terms, .Submitted {
