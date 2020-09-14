@@ -33,7 +33,7 @@
       "patterns": [
         "src"
       ],
-      "extensions": "hbs,css,svg"
+      "extensions": "hbs,css,scss,svg"
     }
   },
   "scripts": {
