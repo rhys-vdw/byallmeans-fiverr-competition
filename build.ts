@@ -89,13 +89,7 @@ async function generatePages(): Promise<void> {
 
 const staticRoot = "./src/static"
 async function copyStaticAssets(): Promise<void> {
-  const staticFiles = await fs.promises.readdir(staticRoot)
-  await Promise.all(staticFiles.map(async staticFile => {
-    const srcPath = path.join(staticRoot, staticFile)
-    const destPath = path.join(destRoot, 'static', path.basename(srcPath))
-    console.log(`${srcPath} -> ${destPath}`)
-    await fs.promises.copyFile(srcPath, destPath)
-  }))
+  await shell.cp("-r", `${staticRoot}/**/*`, path.join(destRoot, 'static'))
 }
 
 async function build() {
