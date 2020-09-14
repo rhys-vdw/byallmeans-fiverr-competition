@@ -79,7 +79,7 @@ async function build() {
   Handlebars.registerHelper(
     'inlineSVG',
     (path: string, options: any) =>
-      inlineSVG(`../../../src/static/svg/${path}`, options)
+      inlineSVG(`../../../src/svg/${path}`, options)
   )
   Handlebars.registerHelper(
     'default',
