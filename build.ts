@@ -47,6 +47,10 @@ async function compileSass() {
     if (file.startsWith("_")) {
       return null;
     }
+    const ext = path.extname(file);
+    if (![".sass", ".scss"].includes(ext)) {
+      return null;
+    }
     const result = await new Promise<sass.Result>((resolve, reject) => {
       sass.render({
         file: path.join(sassPath, file),
