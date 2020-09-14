@@ -81,6 +81,10 @@ async function build() {
     (path: string, options: any) =>
       inlineSVG(`../../../src/static/svg/${path}`, options)
   )
+  Handlebars.registerHelper(
+    'default',
+    (value: any, defaultValue: any) => value == null ? defaultValue : value
+  )
   await registerPartials("partials")
   await generatePages()
   await copyStaticAssets()
