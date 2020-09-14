@@ -24,9 +24,19 @@ body {
   padding: 303px 24px 313px 24px;
 
   h1 {
+    font-size: 60px;
     color: $color-pink-medium;
+
+    font-family: "Domaine Display";
+    font-style: italic;
+    font-weight: mediu;
+
     strong {
       color: $color-pink-dark;
+
+      font-family: Macan;
+      font-style: normal;
+      font-weight: bold;
     }
   }
 
@@ -34,5 +44,11 @@ body {
     width: 780px;
     max-width: 100%;
     margin: auto;
+
+    font-family: Macan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
   }
 }
