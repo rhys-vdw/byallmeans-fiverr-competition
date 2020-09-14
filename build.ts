@@ -76,7 +76,11 @@ async function copyStaticAssets(): Promise<void> {
 }
 
 async function build() {
-  Handlebars.registerHelper('inlineSVG', (path: string, options: any) => inlineSVG(`../../../src/static/svg/${path}`, options))
+  Handlebars.registerHelper(
+    'inlineSVG',
+    (path: string, options: any) =>
+      inlineSVG(`../../../src/static/svg/${path}`, options)
+  )
   await registerPartials("partials")
   await generatePages()
   await copyStaticAssets()
