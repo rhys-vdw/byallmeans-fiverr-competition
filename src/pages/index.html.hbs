@@ -22,7 +22,7 @@
       <p>
         To go into the running to win your own Fiverr Escape Pod just sign up for free as a seller and setup your Gig before <strong>{{competitionCloseDate}}</strong>. Easy.
       </p>
-      <button>Enter now</button>
+      <a href="javascript: void 0" data-scroll-to="enterNow">Enter now</a>
     </section>
     <section>
       <h1>Why <strong>become a Fiverr</strong> seller?</h1>
@@ -51,7 +51,7 @@
       <p>
         You’ll need to register as a Fiverr Seller with a listed service to enter.
       </p>
-      <button>Get started</button>
+      <a href="{{getStartedUrl}}" target="_blank">Get started</a>
     </section>
     <section>
       <h1>The <strong>Prize</strong></h1>
@@ -59,7 +59,8 @@
         The <strong>Fiverr Escape Pod</strong> is a purpose built home-office that, if you’re lucky enough to win it, will be dropped into your backyard to set you up with the perfect conditions for freelancer freedom for evermore!
       </p>
       <p>
-        Please note: if you live in an apartment or don’t think you have room/permission to have a 2.2x2.2m pod dropped onto the property you live at, maybe think twice about entering. Soz! See <a href="terms-and-conditions">terms and conditions</a> for details.
+        Please note: if you live in an apartment or don’t think you have room/permission to have a 2.2x2.2m pod dropped onto the property you live at, maybe think twice about entering.
+        Soz! See <a href="javascript:void 0" data-open-modal="termsAndConditions">terms and conditions</a> for details.
       </p>
     </section>
     <section>
@@ -69,7 +70,7 @@
           Purpose-designed home office pod by award winning Melbourne-based prefabricated building company, Harwyn.
         </li>
         <li>
-          Size: 2.2m x 2.2m (total external dimensions)<br>
+          Size: 2.2m &times; 2.2m (total external dimensions)<br>
           Fully Australian designed, engineered, certified, and built.
         </li>
         <li>
@@ -96,7 +97,7 @@
         <li>Tell us why you need to escape to your own escape pod.</li>
       </ol>
     </section>
-    <section>
+    <section id="enterNow">
       <h1><strong>Enter now</strong> and esape.</h1>
       <form>
         {{> field id="fullName" label="Full Name" required=true}}
@@ -114,7 +115,7 @@
         ></textarea>
         <label>
           <input type="checkbox">
-          Yes, I accept the <a href="javascript:alert('TODO')">terms and conditions</a> and privacy policy.
+          Yes, I accept the <a href="javascript:void 0" data-open-modal="termsAndConditions">terms and conditions</a> and privacy policy.
         </label>
         <label>
           <input name="receiveEmails" type="checkbox" checked>
@@ -122,30 +123,63 @@
         </label>
       </form>
     </section>
-    <section>
+    <section class="Submitted" id="submitted" style="display: none">
       <h1>Congratulations!</h1>
       <p>
         We’ve got your entry. We’ll be in touch soon to let you know how you got on.
       </p>
       <p>TODO: Socials</p>
     </section>
-    <section>
-      <h1>Terms and conditions</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna urna, sodales sed ipsum et, rhoncus feugiat ex. Sed vel lorem sem. Nulla mauris metus, vestibulum id ante vel, eleifend elementum nisl. Nam vitae pharetra ante. Maecenas id feugiat augue. Duis et neque et eros luctus placerat. Aliquam erat volutpat. Nulla ut vehicula sem. Nam aliquam tortor nec hendrerit laoreet. Morbi eu est quis massa dignissim pulvinar. Pellentesque eu diam at metus faucibus tincidunt. Praesent lacinia risus quis lorem dignissim viverra. Phasellus convallis urna ex, sit amet gravida ipsum porta a. Vivamus justo ante, efficitur eget malesuada eget, scelerisque ut leo.
-      </p>
-      <p>
-        Sed consequat sagittis metus, ac pulvinar massa placerat et. In gravida dapibus nisi, id porta dui fringilla interdum. Duis leo diam, vehicula quis ornare sed, accumsan vel velit. Integer non laoreet diam. Nulla vel lacus sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis id orci lacus. Sed quis posuere nisi, ac egestas metus. Etiam tincidunt ac felis et venenatis.
-      </p>
-      <p>
-        Quisque tortor libero, malesuada nec diam vitae, tristique sagittis arcu. Vestibulum vel velit ultrices, fermentum libero vel, venenatis nibh. Pellentesque rutrum rhoncus commodo. Sed nec velit a urna tincidunt blandit. Duis in viverra dolor, sit amet tempus arcu. Ut ullamcorper leo posuere urna rhoncus, sed dignissim odio placerat. Nulla euismod, justo et viverra eleifend, tellus mauris condimentum felis, vel aliquet augue massa ut odio. Suspendisse dignissim ipsum metus, ac consectetur tortor facilisis in. Sed fermentum eu nunc id cursus. In venenatis magna ac neque laoreet placerat. Etiam enim magna, sagittis vitae vehicula dictum, finibus ut augue.
-      </p>
-      <p>
-        Donec fermentum urna sit amet orci accumsan, in tincidunt nunc sagittis. In hac habitasse platea dictumst. Fusce ac sollicitudin sem, vitae semper leo. Sed volutpat pharetra odio sed facilisis. Maecenas dictum ligula ut augue fermentum, ut fermentum risus facilisis. Proin bibendum venenatis tellus, vel posuere metus mollis sed. Nam at felis mauris. Aliquam hendrerit lacinia nulla, ac ornare lacus maximus id. Proin porttitor vestibulum metus, et viverra nunc ullamcorper vel.
-      </p>
-      <p>
-        Pellentesque eget erat venenatis, pulvinar lacus ut, vulputate risus. Morbi at velit magna. Praesent tristique feugiat quam. Sed lectus velit, mattis eget ipsum vestibulum, lacinia dapibus ipsum. Cras id augue justo. Sed finibus viverra sapien vitae facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam ut ex nisi. Maecenas sit amet pharetra lectus. Nullam condimentum lacus ac gravida gravida. Pellentesque bibendum felis sem. Nunc placerat porttitor nisi. Nulla tortor ligula, ultrices at ullamcorper a, fermentum a sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-      </p>
+    <section class="Terms" id="termsAndConditions" style="display: none">
+      <div class="Terms-content">
+        <h1><strong>Terms and</strong> conditions</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna urna, sodales sed ipsum et, rhoncus feugiat ex. Sed vel lorem sem. Nulla mauris metus, vestibulum id ante vel, eleifend elementum nisl. Nam vitae pharetra ante. Maecenas id feugiat augue. Duis et neque et eros luctus placerat. Aliquam erat volutpat. Nulla ut vehicula sem. Nam aliquam tortor nec hendrerit laoreet. Morbi eu est quis massa dignissim pulvinar. Pellentesque eu diam at metus faucibus tincidunt. Praesent lacinia risus quis lorem dignissim viverra. Phasellus convallis urna ex, sit amet gravida ipsum porta a. Vivamus justo ante, efficitur eget malesuada eget, scelerisque ut leo.
+        </p>
+        <p>
+          Sed consequat sagittis metus, ac pulvinar massa placerat et. In gravida dapibus nisi, id porta dui fringilla interdum. Duis leo diam, vehicula quis ornare sed, accumsan vel velit. Integer non laoreet diam. Nulla vel lacus sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis id orci lacus. Sed quis posuere nisi, ac egestas metus. Etiam tincidunt ac felis et venenatis.
+        </p>
+        <p>
+          Quisque tortor libero, malesuada nec diam vitae, tristique sagittis arcu. Vestibulum vel velit ultrices, fermentum libero vel, venenatis nibh. Pellentesque rutrum rhoncus commodo. Sed nec velit a urna tincidunt blandit. Duis in viverra dolor, sit amet tempus arcu. Ut ullamcorper leo posuere urna rhoncus, sed dignissim odio placerat. Nulla euismod, justo et viverra eleifend, tellus mauris condimentum felis, vel aliquet augue massa ut odio. Suspendisse dignissim ipsum metus, ac consectetur tortor facilisis in. Sed fermentum eu nunc id cursus. In venenatis magna ac neque laoreet placerat. Etiam enim magna, sagittis vitae vehicula dictum, finibus ut augue.
+        </p>
+        <p>
+          Donec fermentum urna sit amet orci accumsan, in tincidunt nunc sagittis. In hac habitasse platea dictumst. Fusce ac sollicitudin sem, vitae semper leo. Sed volutpat pharetra odio sed facilisis. Maecenas dictum ligula ut augue fermentum, ut fermentum risus facilisis. Proin bibendum venenatis tellus, vel posuere metus mollis sed. Nam at felis mauris. Aliquam hendrerit lacinia nulla, ac ornare lacus maximus id. Proin porttitor vestibulum metus, et viverra nunc ullamcorper vel.
+        </p>
+        <p>
+          Pellentesque eget erat venenatis, pulvinar lacus ut, vulputate risus. Morbi at velit magna. Praesent tristique feugiat quam. Sed lectus velit, mattis eget ipsum vestibulum, lacinia dapibus ipsum. Cras id augue justo. Sed finibus viverra sapien vitae facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam ut ex nisi. Maecenas sit amet pharetra lectus. Nullam condimentum lacus ac gravida gravida. Pellentesque bibendum felis sem. Nunc placerat porttitor nisi. Nulla tortor ligula, ultrices at ullamcorper a, fermentum a sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+        </p>
+        <a href="javascript:void 0" data-close-modal>Close</a>
+      </div>
     </section>
   </main>
+  <script>
+    var currentModal = null;
+
+    function openModal(element) {
+      closeModal();
+      element.style.display = "block";
+      currentModal = element;
+      document.body.style.overflowY = "hidden";
+    }
+
+    function closeModal() {
+      if (currentModal !== null) {
+        currentModal.style.display = "none";
+        currentModal = null;
+      }
+      document.body.style.overflowY = "auto";
+    }
+
+    Array.from(document.querySelectorAll("[data-open-modal]")).forEach(element => {
+      console.log("Found ", element);
+      element.addEventListener("click", () => {
+        const id = element.dataset["openModal"];
+        openModal(document.getElementById(id));
+      });
+    });
+
+    Array.from(document.querySelectorAll("[data-close-modal]")).forEach(element =>
+      element.addEventListener("click", closeModal)
+    );
+  </script>
 {{/main}}
