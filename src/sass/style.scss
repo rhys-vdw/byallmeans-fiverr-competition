@@ -1,0 +1,35 @@
+$color-pink-light: #FFD3E2;
+$color-pink-medium: #BE5272;
+$color-pink-dark: #4D1727;
+
+body {
+  text-align: center;
+}
+
+.Terms, .Submitted {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.Terms {
+  overflow-y: auto;
+  color: $color-pink-dark;
+  background: $color-pink-light;
+  padding: 303px 24px 313px 24px;
+
+  h1 {
+    color: $color-pink-medium;
+    strong {
+      color: $color-pink-dark;
+    }
+  }
+
+  &-content {
+    width: 780px;
+    max-width: 100%;
+    margin: auto;
+  }
+}
