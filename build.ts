@@ -1,9 +1,10 @@
-import Handlebars from "handlebars"
+import Handlebars, { compile } from "handlebars"
 import fs from "fs"
 import path from "path"
 import shell from "shelljs"
 import { camelCase } from "lodash"
 import Remarkable from "remarkable"
+import sass from "node-sass"
 import constants from "./constants.json"
 const { inlineSVG } = require("handlebars-helper-inlinesvg");
 const md = new Remarkable()
@@ -37,6 +38,28 @@ function stripExtensions(filePath: string): string {
 async function listFiles(lsPath: string): Promise<string[]> {
   const files = await fs.promises.readdir(lsPath)
   return files.map(file => path.join(lsPath, file))
+}
+
+async function compileSass() {
+  const sassPath = srcPath("sass");
+  const files = await fs.promises.readdir(sassPath)
+  await Promise.all(files.map(async file => {
+    if (file.startsWith("_")) {
+      return null;
+    }
+    const result = await new Promise<sass.Result>((resolve, reject) => {
+      sass.render({
+        file: path.join(sassPath, file),
+        omitSourceMapUrl: true
+      }, (error, result) => {
+        if (error != null) reject(error)
+        else resolve(result)
+      });
+    })
+    const destPath = path.join(destRoot, 'static', `${path.parse(file).name}.css`)
+    console.log(`Compiled SASS "${file}" to "${destPath}"`)
+    await fs.promises.writeFile(destPath, result.css)
+  }));
 }
 
 async function registerPartials(path: string): Promise<void> {
@@ -88,6 +111,7 @@ async function build() {
   await registerPartials("partials")
   await generatePages()
   await copyStaticAssets()
+  await compileSass()
 
   const cnameSource = path.join(__dirname, "CNAME");
   if (fs.existsSync(cnameSource)) {

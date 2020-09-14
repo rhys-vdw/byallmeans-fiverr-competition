@@ -10,11 +10,13 @@
     "@types/glob": "^5.0.35",
     "@types/handlebars": "^4.1.0",
     "@types/lodash": "^4.14.161",
+    "@types/node-sass": "^4.11.1",
     "@types/remarkable": "^1.7.4",
     "@types/shelljs": "^0.8.8",
     "handlebars": "^4.7.6",
     "handlebars-helper-inlinesvg": "^1.0.4",
     "lodash": "^4.17.20",
+    "node-sass": "^4.14.1",
     "npm-watch": "^0.7.0",
     "remarkable": "^1.7.4",
     "shelljs": "^0.8.4",
@@ -28,7 +30,9 @@
   },
   "watch": {
     "build": {
-      "patterns": ["src"],
+      "patterns": [
+        "src"
+      ],
       "extensions": "hbs,css,svg"
     }
   },
