@@ -1,9 +1,12 @@
+@import "_fonts";
+
 $color-pink-light: #FFD3E2;
 $color-pink-medium: #BE5272;
 $color-pink-dark: #4D1727;
 
 body {
   text-align: center;
+  font-family: "Macan";
 }
 
 .Terms, .Submitted {

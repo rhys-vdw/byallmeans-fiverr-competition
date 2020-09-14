@@ -1,0 +1,261 @@
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-Black.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('fonts/Macan-Bold.woff2') format('woff2'),
+        url('fonts/Macan-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-BlackItalic.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-Extrabold.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-Extrabold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-BoldItalic.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-MediumItalic.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-Bold.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-ExtraboldItalic.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-ExtraboldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-Medium.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarBlack.woff2') format('woff2'),
+        url('fonts/DomaineDispNarBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-Semibold.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-Regular.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarBlack-Italic.woff2') format('woff2'),
+        url('fonts/DomaineDispNarBlack-Italic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-RegularItalic.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Display';
+    src: url('fonts/DomaineDisplay-SemiboldItalic.woff2') format('woff2'),
+        url('fonts/DomaineDisplay-SemiboldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarMedium-Italic.woff2') format('woff2'),
+        url('fonts/DomaineDispNarMedium-Italic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarExtrabold.woff2') format('woff2'),
+        url('fonts/DomaineDispNarExtrabold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNar-Bold.woff2') format('woff2'),
+        url('fonts/DomaineDispNar-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarExtrabold-Italic.woff2') format('woff2'),
+        url('fonts/DomaineDispNarExtrabold-Italic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarMedium.woff2') format('woff2'),
+        url('fonts/DomaineDispNarMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNar-BoldItalic.woff2') format('woff2'),
+        url('fonts/DomaineDispNar-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNar-RegularItalic.woff2') format('woff2'),
+        url('fonts/DomaineDispNar-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarSemibold-Italic.woff2') format('woff2'),
+        url('fonts/DomaineDispNarSemibold-Italic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('fonts/Macan-Medium.woff2') format('woff2'),
+        url('fonts/Macan-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNar-Regular.woff2') format('woff2'),
+        url('fonts/DomaineDispNar-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domaine Disp Nar';
+    src: url('fonts/DomaineDispNarSemibold.woff2') format('woff2'),
+        url('fonts/DomaineDispNarSemibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('fonts/Macan-Black.woff2') format('woff2'),
+        url('fonts/Macan-Black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('fonts/Macan-Regular.woff2') format('woff2'),
+        url('fonts/Macan-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('fonts/Macan-Semibold.woff2') format('woff2'),
+        url('fonts/Macan-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
