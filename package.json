@@ -15,6 +15,7 @@
     "handlebars": "^4.7.6",
     "handlebars-helper-inlinesvg": "^1.0.4",
     "lodash": "^4.17.20",
+    "npm-watch": "^0.7.0",
     "remarkable": "^1.7.4",
     "shelljs": "^0.8.4",
     "ts-node": "^9.0.0",
@@ -25,9 +26,16 @@
     "current": "^0.1.6",
     "gh-pages": "^1.2.0"
   },
+  "watch": {
+    "build": {
+      "patterns": ["src"],
+      "extensions": "hbs,css,svg"
+    }
+  },
   "scripts": {
     "build": "ts-node build.ts",
     "view": "npm run build && cd build && python -m SimpleHTTPServer",
-    "deploy": "yarn run build && gh-pages -d build"
+    "deploy": "yarn run build && gh-pages -d build",
+    "watch": "npm-watch"
   }
 }
