@@ -287,14 +287,10 @@ main header {
           overflow: hidden;
 
           border-radius: 50%;
-          // width: 10vw;
-          // width: 250px;
-          // height: 250px;
           height: 0;
           padding-top: 100%;
 
           position: relative;
-
         }
       }
       &-number {
@@ -417,10 +413,23 @@ main header {
     font-size: 32px;
     line-height: 120%;
 
-    // Center text.
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    > div {
+      padding-top: 100%;
+      position: relative;
+
+      > div {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        // Center text.
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
 
     strong {
       font-family: Macan;
