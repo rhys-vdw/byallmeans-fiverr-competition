@@ -9,7 +9,7 @@ $color-pink-medium: #BE5272;
 $color-pink-dark: #4D1727;
 $color-white: white;
 $color-green: #00C16B;
-$color-dark-green: #003912;
+$color-green-dark: #003912;
 
 $mobile-gutter: 24px;
 
@@ -18,7 +18,6 @@ $mobile-gutter: 24px;
 }
 
 body {
-  text-align: center;
   font-family: "Macan";
   font-size: 20px;
   line-height: 140%;
@@ -26,13 +25,35 @@ body {
   margin: 0;
 }
 
+a {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  margin: 0;
+}
+
+small {
+  font-size: 14px;
+  font-weight: normal;
+}
+
 @mixin heading($color, $strong-color) {
+  white-space: nowrap;
   font-size: 60px;
   color: $color;
 
   font-family: "Domaine Display";
   font-style: italic;
   font-weight: 500;
+
+  // Expand height to cover all text.
+  padding: 0.3em 0;
 
   strong {
     color: $strong-color;
@@ -43,17 +64,27 @@ body {
   }
 }
 
+main header {
+  text-align: center;
+  h1 {
+    display: inline-block;
+  }
+}
+
 .Hero {
+  text-align: center;
   background-image: url("/static/images/header-background-temp.jpg");
   background-size: cover;
   padding: 90px $mobile-gutter 80px $mobile-gutter;
+
+  margin-bottom: 60px;
 
   &-heading {
     @include heading($color-white, $color-yellow);
     &-win { font-size: 70px; }
     &-pod {
       font-size: 340px;
-      line-height: 320px;
+      line-height: 94%;
     }
     margin-bottom: 0;
   }
@@ -68,12 +99,14 @@ body {
 }
 
 .Button {
-  display: inline-block;
+  display: block;
+  margin: auto;
+
   border-radius: 6px;
-  min-width: 240px;
+  width: 240px;
   padding: 16px;
 
-  background-color: $color-pink-dark;
+  text-align: center;
 
   font-family: Macan;
   font-style: normal;
@@ -83,6 +116,14 @@ body {
   &, &:active {
     color: $color-white;
     text-decoration: none;
+  }
+
+  &--pink {
+    background-color: $color-pink-dark;
+  }
+
+  &--green {
+    background-color: $color-green-dark;
   }
 }
 
@@ -118,10 +159,168 @@ body {
 }
 
 .Section {
-  padding: 0 $mobile-gutter;
+  p {
+    margin-bottom: 55px;
+  }
 
   &-content {
     max-width: $content-width;
     margin: auto;
+
+    &-note {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 140%;
+    }
+  }
+
+  &--winAPod {
+    color: $color-green-dark;
+    padding-bottom: 240px;
+  }
+
+  &--winAPod &-feature {
+    text-align: center;
+    padding: 47px 68px 54px 68px;
+
+    border: 6px solid $color-green;
+    border-radius: 6px;
+
+    font-family: "Domaine Display";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 120%;
+
+    strong {
+      color: $color-green;
+      font-family: Macan;
+      font-weight: bold;
+      font-style: normal;
+      padding: 0 0.1em;
+    }
+  }
+
+  &--becomeASeller {
+    h1 {
+      @include heading($color-green-dark, $color-green);
+    }
+  }
+
+  &--thePrize {
+    background: $color-green;
+    color: $color-green-dark;
+    padding-bottom: 300px;
+    h1 {
+      @include heading($color-white, $color-green-dark);
+      font-size: 70px;
+      margin-bottom: 0.5em;
+    }
+  }
+  &--thePrize &-content {
+    display: flex;
+    flex-direction: row;
+
+    &-text {
+      padding-right: 1em;
+    }
+    &-left {
+      flex-basis: 60%;
+    }
+    &-right {
+      flex-basis: 40%;
+      background-image: url("/static/images/the-prize.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &--features {
+    background: $color-green;
+    color: $color-green-dark;
+    padding-bottom: 200px;
+    h1 {
+      @include heading($color-white, $color-green-dark);
+      text-align: center;
+    }
+  }
+
+  &--howToEnter {
+    background: $color-green;
+    color: $color-green-dark;
+    padding-bottom: 83px;
+    .Section-content {
+      max-width: 830px;
+    }
+    h1 {
+      @include heading($color-green-dark, $color-white);
+      text-align: center;
+      margin-bottom: 67px;
+    }
+    .Steps {
+      text-align: center;
+      white-space: nowrap;
+      > div {
+        $spacing: 40px;
+        display: inline-block;
+        width: calc((100% - #{2 * $spacing}) / 3);
+        &:not(:first-child) {
+          margin-left: $spacing;
+        }
+        > div {
+          white-space: normal;
+          background: $color-white;
+          overflow: hidden;
+
+          border-radius: 50%;
+          // width: 10vw;
+          // width: 250px;
+          // height: 250px;
+          height: 0;
+          padding-top: 100%;
+
+          position: relative;
+
+        }
+      }
+      &-number {
+        position: absolute;
+        top: 24%;
+        left: 15%;
+        right: 15%;
+        bottom: 15%;
+
+        font-family: "Domaine Display";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 100%;
+      }
+      &-text {
+        position: absolute;
+        top: 52%;
+        left: 15%;
+        right: 15%;
+        bottom: 15%;
+
+        text-align: center;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 120%;
+      }
+    }
+  }
+
+  &--form {
+    padding-top: 120px;
+    color: $color-pink-dark;
+    background: $color-pink-light;
+
+    h1 {
+      @include heading($color-pink-medium, $color-pink-dark);
+      margin-bottom: 130px;
+      text-align: center;
+    }
   }
 }
