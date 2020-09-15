@@ -377,9 +377,17 @@ main header {
   font-size: 16px;
 
   &-input {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
   }
-  &-input+&-checkbox {
+  &-input:checked+&-checkbox {
+    background-image: url("/static/images/check.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &-checkbox {
     display: inline-block;
     vertical-align: middle;
     width: 30px;
@@ -392,11 +400,6 @@ main header {
   &-checkbox:focus {
     border: 2px solid $color-pink;
     outline: none;
-  }
-  &-input:checked+&-checkbox {
-    background-image: url("/static/images/check.svg");
-    background-position: center;
-    background-repeat: no-repeat;
   }
 }
 
