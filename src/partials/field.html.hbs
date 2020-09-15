@@ -1,8 +1,11 @@
-<label for="{{id}}">{{label}}</label>
-<input
-  id="{{id}}"
-  name="{{id}}"
-  {{#if type}}type="{{type}}"{{/if}}
-  {{#if required}}required{{/if}}
-  {{#if placeholder}}placeholder="{{placeholder}}"{{/if}}
-/>
+<div class="Field">
+  <label class="Field-label" for="{{id}}">{{label}}</label>
+  <input
+    class="Field-input"
+    id="{{id}}"
+    name="{{id}}"
+    {{#if type}}type="{{type}}"{{/if}}
+    {{#if required}}required{{/if}}
+    {{#if placeholder}}placeholder="{{placeholder}}"{{/if}}
+  />
+</div>

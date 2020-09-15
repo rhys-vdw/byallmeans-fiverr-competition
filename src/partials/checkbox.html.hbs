@@ -1,0 +1,12 @@
+<label class="Checkbox">
+  <input
+    class="Checkbox-input"
+    id="{{id}}"
+    name="{{id}}"
+    type="checkbox"
+    {{#if required}}required{{/if}}
+    {{#if checked}}checked="{{checked}}"{{/if}}
+  />
+  <label class="Checkbox-checkbox" tabindex="0" for="{{id}}"></label>
+  {{>@partial-block}}
+</label>

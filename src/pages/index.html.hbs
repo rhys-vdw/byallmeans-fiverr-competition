@@ -141,21 +141,28 @@
         {{> field id="contactNumber" label="Contact number" placeholder="Contact number"}}
         {{> field id="gig" label="Your Fiverr Gig number" placeholder="Insert link to your Gig on Fiverr"}}
         {{> field id="photo" type="file" label="Show us your #WTFWFH situation" placeholder="Upload your photo"}}
-        <label for="photoCaption">Give your photo a caption</label>
+        <label
+          class="Field-label"
+          for="photoCaption"
+        >Give your photo a caption</label>
         <textarea
+          class="Field-input"
           id="photoCaption"
           name="photoCaption"
           placeholder="In less than 60 characters give us the lowdown on your #WTFWFH situation. It should express to us why you deserve your very own Fiverr Escape Pod!"
           maxlength="60"
         ></textarea>
-        <label>
-          <input type="checkbox">
-          Yes, I accept the <a href="javascript:void 0" data-open-modal="termsAndConditions">terms and conditions</a> and privacy policy.
-        </label>
-        <label>
-          <input name="receiveEmails" type="checkbox" checked>
+        {{#> checkbox id="accept" required=true}}
+          Yes, I accept the <a href="javascript:void 0" data-open-modal="termsAndConditions">terms and conditions</a> and privacy policy
+        {{/checkbox}}
+        {{#> checkbox id="receiveEmails" checked=true}}
           Receive Fiverr emails about news and cool stuff
-        </label>
+        {{/checkbox}}
+        <div class="Section-submitRow">
+          <button class="Button Button--pink" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </section>
     <section class="Submitted" id="submitted" style="display: none">
