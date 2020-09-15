@@ -11,6 +11,7 @@ $color-pink-dark: #4D1727;
 $color-white: white;
 $color-green: #00C16B;
 $color-green-dark: #003912;
+$color-orange: #FF7640;
 
 $mobile-gutter: 24px;
 
@@ -165,6 +166,10 @@ main header {
     margin-bottom: 55px;
   }
 
+  &-centeredText {
+    text-align: center;
+  }
+
   &-content {
     max-width: $content-width;
     margin: auto;
@@ -203,10 +208,16 @@ main header {
     }
   }
 
-  &--becomeASeller {
+  &--becomeASeller1 {
     h1 {
       @include heading($color-green-dark, $color-green);
+      margin-bottom: 50px;
     }
+    color: $color-green-dark;
+  }
+  &--becomeASeller2 {
+    background-color: $color-green;
+    padding-bottom: 300px;
   }
 
   &--thePrize {
@@ -390,5 +401,48 @@ main header {
     background-image: url("/static/images/check.svg");
     background-position: center;
     background-repeat: no-repeat;
+  }
+}
+
+.Benefits {
+  display: flex;
+  &-cell {
+    width: 50%;
+
+    text-align: center;
+
+    font-family: "Domaine Display";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 120%;
+
+    // Center text.
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    strong {
+      font-family: Macan;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    &--clients {
+      color: white;
+      background: $color-green-dark;
+    }
+    &--invoices {
+      color: $color-green-dark;
+      background: $color-green;
+    }
+    &--global {
+      color: $color-pink-dark;
+      background: $color-pink-light;
+    }
+    &--focus {
+      color: white;
+      background: $color-orange;
+    }
   }
 }
