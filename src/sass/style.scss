@@ -1,6 +1,8 @@
 @import "_normalize";
 @import "_fonts";
 
+$content-width: 780px;
+
 $color-yellow: #D0E500;
 $color-pink-light: #FFD3E2;
 $color-pink-medium: #BE5272;
@@ -41,12 +43,10 @@ body {
   }
 }
 
-.WinAPod {
-  header {
-    background-image: url("/static/images/header-background-temp.jpg");
-    background-size: cover;
-    padding: 90px $mobile-gutter 80px $mobile-gutter;
-  }
+.Hero {
+  background-image: url("/static/images/header-background-temp.jpg");
+  background-size: cover;
+  padding: 90px $mobile-gutter 80px $mobile-gutter;
 
   &-heading {
     @include heading($color-white, $color-yellow);
@@ -114,5 +114,14 @@ body {
     font-weight: 500;
     font-size: 20px;
     line-height: 140%;
+  }
+}
+
+.Section {
+  padding: 0 $mobile-gutter;
+
+  &-content {
+    max-width: $content-width;
+    margin: auto;
   }
 }
