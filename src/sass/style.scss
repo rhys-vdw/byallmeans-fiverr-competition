@@ -85,6 +85,23 @@ main header {
     &-pod {
       font-size: 340px;
       line-height: 94%;
+      white-space: nowrap;
+      &-o {
+        position: relative;
+        &:after {
+          display: block;
+          content: "";
+          background-image: url("/static/images/pod.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 8%;
+          bottom: 25%;
+        }
+      }
     }
     margin-bottom: 0;
   }
