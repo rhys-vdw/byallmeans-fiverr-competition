@@ -11,6 +11,10 @@ $color-dark-green: #003912;
 
 $mobile-gutter: 24px;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   text-align: center;
   font-family: "Macan";
