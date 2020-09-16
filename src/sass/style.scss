@@ -9,9 +9,11 @@ $color-pink: #FF80AE;
 $color-pink-medium: #BE5272;
 $color-pink-dark: #4D1727;
 $color-white: white;
+$color-black: black;
 $color-green: #00C16B;
 $color-green-dark: #003912;
 $color-orange: #FF7640;
+$color-orange-dark: #421300;
 
 $mobile-gutter: 24px;
 
@@ -25,6 +27,8 @@ body {
   line-height: 140%;
   font-weight: 500;
   margin: 0;
+
+  overflow-x: hidden;
 }
 
 a {
@@ -270,9 +274,13 @@ main header {
     background: $color-green;
     color: $color-green-dark;
     padding-bottom: 200px;
+    .Section-content {
+      max-width: 980px;
+    }
     h1 {
       @include heading($color-white, $color-green-dark);
       text-align: center;
+      margin-bottom: 56px;
     }
   }
 
@@ -472,6 +480,88 @@ main header {
     &--focus {
       color: white;
       background: $color-orange;
+    }
+  }
+}
+
+.Features-slide {
+  background-image: url("/static/images/backyard-photo.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  // TODO: Proper sizing.
+  height: 700px;
+  // TODO: Proper spacing.
+  margin-top: 20px;
+
+  padding: 50px;
+  position: relative;
+
+  &-frame {
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    top: 50px;
+    bottom: 50px;
+
+    border: 6px solid $color-orange;
+    border-radius: 6px;
+
+    font-family: Macan;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 120%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    // align-items: center;
+  }
+
+  &-cornerText {
+    color: $color-orange-dark;
+    background: $color-orange;
+    padding: 20px;
+    max-width: 400px;
+
+    position: absolute;
+    &.top { top: 0; }
+    &.right { right: 0; }
+    &.bottom { bottom: 0; }
+    &.left { left: 0; }
+  }
+
+  &-point {
+    .content {
+      display: inline-block;
+      color: $color-white;
+      background: rgba($color-black, 0.5);
+      border: 6px solid $color-orange;
+      border-radius: 6px;
+      padding: 20px;
+      white-space: nowrap;
+    }
+
+    &.a {
+      text-align: right;
+      padding-right: 20%;
+    }
+    &.b {
+      text-align: left;
+      padding-left: 8%;
+    }
+    &.c {
+      text-align: right;
+      padding-right: 6%;
+    }
+    &.d {
+      text-align: right;
+      padding-right: 25%;
+    }
+    &.e {
+      text-align: left;
+      padding-left: 8%;
     }
   }
 }
