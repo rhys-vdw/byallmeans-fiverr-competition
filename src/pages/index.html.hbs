@@ -218,14 +218,21 @@
           placeholder="Insert link to your Gig on Fiverr"
           required=true
         }}
-        {{>
-          field id="photo"
-          type="file"
-          label="Show us your #WTFWFH situation"
-          placeholder="Upload your photo"
-          accept="image/*"
-          required=true
-        }}
+        <div class="Field">
+          <label class="Field-label" for="photo">
+            Show us your #WTFWFH situation
+          </label>
+          <input
+            class="Field-input"
+            id="photo"
+            name="photo"
+            type="file"
+            required
+            placeholder="Upload your photo"
+            accept="image/*"
+            data-max-size="5"
+          />
+        </div>
         <div class="Field">
           <label
             class="Field-label"
@@ -340,6 +347,24 @@
       textArea.addEventListener("change", update);
       textArea.addEventListener("input", update);
       update();
+    });
+
+    queryEach("input[type='file'][data-max-size]", element => {
+      const maxSizeString = element.dataset["maxSize"];
+      if (maxSizeString == null) {
+        return;
+      }
+      const maxSize = parseInt(maxSizeString);
+      element.addEventListener("change", () => {
+        Array.from(element.files).forEach(file => {
+          const sizeMb = file.size * 1024 * 1024;
+          if (sizeMb > maxSize) {
+            element.setCustomValidity("File is larger than maximum size of " + maxSize + "MB");
+          } else {
+            element.setCustomValidity("");
+          }
+        })
+      })
     });
   </script>
 {{/main}}
