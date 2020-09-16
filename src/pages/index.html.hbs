@@ -185,14 +185,46 @@
       </div>
     </section>
     <section id="enterNow" class="Section Section--form">
-      <form class="Section-content">
+      <form
+        class="Section-content"
+        accept-charset="UTF-8"
+        action="{{formPostUrl}}"
+        enctype="multipart/form-data"
+        method="POST"
+      >
         <h1><strong>Enter now</strong> and esape.</h1>
-        {{> field id="fullName" label="Full Name" required=true}}
-        {{> field id="accountName" label="Fiverr account name" placeholder="Don’t have an account yet? fiverr.com/join"}}
-        {{> field id="homeAddress" label="Home address" placeholder="Home address"}}
-        {{> field id="contactNumber" label="Contact number" placeholder="Contact number"}}
-        {{> field id="gig" label="Your Fiverr Gig number" placeholder="Insert link to your Gig on Fiverr"}}
-        {{> field id="photo" type="file" label="Show us your #WTFWFH situation" placeholder="Upload your photo"}}
+        {{> field id="fullName" label="Full name" required=true}}
+        {{> field
+          id="accountName"
+          label="Fiverr account name"
+          placeholder="Don’t have an account yet? fiverr.com/join"
+          required=true
+        }}
+        {{> field
+          id="homeAddress"
+          label="Home address"
+          placeholder="Home address"
+          required=true
+        }}
+        {{> field
+          id="contactNumber"
+          label="Contact number"
+          placeholder="Contact number"
+          required=true
+        }}
+        {{> field
+          id="gig"
+          label="Your Fiverr Gig number"
+          placeholder="Insert link to your Gig on Fiverr"
+          required=true
+        }}
+        {{>
+          field id="photo"
+          type="file"
+          label="Show us your #WTFWFH situation"
+          placeholder="Upload your photo"
+          required=true
+        }}
         <div class="Field">
           <label
             class="Field-label"

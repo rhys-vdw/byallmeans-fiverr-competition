@@ -1,5 +1,6 @@
 {
   "googleAnalyticsId": "",
   "competitionCloseDate": "XX.08.2020",
-  "getStartedUrl": "https://www.fiverr.com/start_selling"
+  "getStartedUrl": "https://www.fiverr.com/start_selling",
+  "formPostUrl": "https://www.formbackend.com/f/3b0ffcbe58571446"
 }
