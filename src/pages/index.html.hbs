@@ -193,18 +193,24 @@
         {{> field id="contactNumber" label="Contact number" placeholder="Contact number"}}
         {{> field id="gig" label="Your Fiverr Gig number" placeholder="Insert link to your Gig on Fiverr"}}
         {{> field id="photo" type="file" label="Show us your #WTFWFH situation" placeholder="Upload your photo"}}
-        <label
-          class="Field-label"
-          for="photoCaption"
-        >Give your photo a caption</label>
-        <textarea
-          class="Field-input"
-          id="photoCaption"
-          name="photoCaption"
-          placeholder="In less than 60 characters give us the lowdown on your #WTFWFH situation. It should express to us why you deserve your very own Fiverr Escape Pod!"
-          maxlength="60"
-          required
-        ></textarea>
+        <div class="Field">
+          <label
+            class="Field-label"
+            for="photoCaption"
+          >Give your photo a caption</label>
+          <textarea
+            class="Field-input"
+            id="photoCaption"
+            name="photoCaption"
+            placeholder="In less than 60 characters give us the lowdown on your #WTFWFH situation. It should express to us why you deserve your very own Fiverr Escape Pod!"
+            maxlength="60"
+            rows="6"
+            required
+          ></textarea>
+          <div class="Field-lengthCount" data-length-count-for="photoCaption">
+            <!-- To fill with JS -->
+          </div>
+        </div>
         {{#> checkbox id="accept" required=true}}
           Yes, I accept the <a href="javascript:void 0" data-open-modal="termsAndConditions">terms and conditions</a> and privacy policy
         {{/checkbox}}
@@ -267,18 +273,22 @@
       document.body.style.overflowY = "auto";
     }
 
-    Array.from(document.querySelectorAll("[data-open-modal]")).forEach(element => {
+    function queryEach(selector, cb) {
+      Array.from(document.querySelectorAll(selector)).forEach(cb);
+    }
+
+    queryEach("[data-open-modal]", element => {
       element.addEventListener("click", () => {
         const id = element.dataset["openModal"];
         openModal(document.getElementById(id));
       });
     });
 
-    Array.from(document.querySelectorAll("[data-close-modal]")).forEach(element => {
+    queryEach("[data-close-modal]", element => {
       element.addEventListener("click", closeModal);
     });
 
-    Array.from(document.querySelectorAll("[data-scroll-to]")).forEach(element => {
+    queryEach("[data-scroll-to]", element => {
       element.addEventListener("click", () => {
         const id = element.dataset["scrollTo"];
         document.getElementById(id).scrollIntoView({
@@ -286,6 +296,17 @@
           block: "start"
         });
       });
+    });
+
+    queryEach("[data-length-count-for]", element => {
+      const inputId = element.dataset["lengthCountFor"];
+      const textArea = document.getElementById(inputId);
+      const update = () => {
+        element.innerText = textArea.value.length + " / " + textArea.maxLength;
+      };
+      textArea.addEventListener("change", update);
+      textArea.addEventListener("input", update);
+      update();
     });
   </script>
 {{/main}}
