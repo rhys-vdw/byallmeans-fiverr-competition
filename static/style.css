@@ -537,7 +537,7 @@ main header {
 
 .Hero {
   text-align: center;
-  background-image: url("/static/images/header-background-temp.jpg");
+  background-image: url("images/header-background-temp.jpg");
   background-size: cover;
   padding: 90px 24px 80px 24px;
   margin-bottom: 60px; }
@@ -566,7 +566,7 @@ main header {
         .Hero-heading-pod-o:after {
           display: block;
           content: "";
-          background-image: url("/static/images/pod.png");
+          background-image: url("images/pod.png");
           background-position: center;
           background-repeat: no-repeat;
           background-size: contain;
@@ -723,7 +723,7 @@ main header {
     flex-basis: 60%; }
   .Section--thePrize .Section-content-right {
     flex-basis: 40%;
-    background-image: url("/static/images/the-prize.png");
+    background-image: url("images/the-prize.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; }
@@ -873,7 +873,7 @@ main header {
     width: 30px;
     height: 30px; }
   .Checkbox-input:checked + .Checkbox-checkbox {
-    background-image: url("/static/images/check.svg");
+    background-image: url("images/check.svg");
     background-position: center;
     background-repeat: no-repeat; }
   .Checkbox-checkbox {
@@ -928,7 +928,7 @@ main header {
       background: #FF7640; }
 
 .Features-slide {
-  background-image: url("/static/images/backyard-photo.jpg");
+  background-image: url("images/backyard-photo.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
