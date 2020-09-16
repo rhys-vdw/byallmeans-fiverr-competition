@@ -575,3 +575,60 @@ main header {
     }
   }
 }
+
+.Congratulations {
+  min-height: 100vh;
+  min-width: 100%;
+  padding: 50px;
+
+  background-color: $color-green;
+  color: $color-green-dark;
+
+  text-align: center;
+
+  // Center content.
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    // Expand as large as possible (constrained by padding).
+    flex-grow: 1;
+
+    margin: auto;
+    min-width: 580px;
+    max-width: 980px;
+    height: 600px;
+
+    border: 6px solid $color-yellow;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    padding: 150px $mobile-gutter 80px $mobile-gutter;
+
+    p {
+      line-height: 120%;
+      max-width: 580px;
+      margin: auto;
+      padding-bottom: 150px;
+    }
+  }
+
+  .socials {
+    margin: auto;
+    max-width: 236px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    color: $color-yellow;
+    font-family: "Domaine Display";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 60px;
+    margin-bottom: 46px;
+  }
+}
