@@ -77,7 +77,7 @@ main header {
 
 .Hero {
   text-align: center;
-  background-image: url("/static/images/header-background-temp.jpg");
+  background-image: url("images/header-background-temp.jpg");
   background-size: cover;
   padding: 90px $mobile-gutter 80px $mobile-gutter;
 
@@ -95,7 +95,7 @@ main header {
         &:after {
           display: block;
           content: "";
-          background-image: url("/static/images/pod.png");
+          background-image: url("images/pod.png");
           background-position: center;
           background-repeat: no-repeat;
           background-size: contain;
@@ -263,7 +263,7 @@ main header {
     }
     &-right {
       flex-basis: 40%;
-      background-image: url("/static/images/the-prize.png");
+      background-image: url("images/the-prize.png");
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -418,7 +418,7 @@ main header {
     height: 30px;
   }
   &-input:checked+&-checkbox {
-    background-image: url("/static/images/check.svg");
+    background-image: url("images/check.svg");
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -495,7 +495,7 @@ main header {
 }
 
 .Features-slide {
-  background-image: url("/static/images/backyard-photo.jpg");
+  background-image: url("images/backyard-photo.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
