@@ -9,5 +9,5 @@
     <title>Template</title>
     <link rel="stylesheet" href="static/style.css">
   </head>
-  <body>{{>@partial-block}}</body>
+  <body {{#if bodyClass}}class="{{bodyClass}}"{{/if}} >{{>@partial-block}}</body>
 </html>
