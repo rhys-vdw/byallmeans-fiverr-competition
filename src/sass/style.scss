@@ -3,6 +3,7 @@
 
 $desktop-min-width: 860px;
 $content-width: 780px;
+$mobile-content-width: 580px;
 
 $color-yellow: #D0E500;
 $color-pink-light: #FFD3E2;
@@ -24,6 +25,11 @@ $mobile-gutter: 25px;
   }
 }
 
+@mixin desktop-content {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -225,6 +231,10 @@ small {
     padding-left: $mobile-gutter;
     padding-right: $mobile-gutter;
 
+    @include mobile-content() {
+      max-width: $mobile-content-width;
+    }
+
     &-note {
       font-size: 14px;
       font-weight: normal;
@@ -267,10 +277,20 @@ small {
     }
   }
 
+  &--becomeASeller1, &--becomeASeller2 {
+    @include desktop-content {
+      .Section-content {
+        max-width: 800px;
+      }
+    }
+  }
+
   &--becomeASeller1 {
     h1 {
       @include heading($color-green-dark, $color-green);
       text-align: center;
+      margin-left: -$mobile-gutter;
+      margin-right: -$mobile-gutter;
       margin-bottom: 50px;
       @include mobile-content {
         padding: 0 $mobile-gutter;
@@ -360,6 +380,7 @@ small {
 
     .Section-content {
       width: 580px;
+      max-width: 100%;
     }
 
     .Section-submitRow {
@@ -370,6 +391,9 @@ small {
       @include heading($color-pink-medium, $color-pink-dark);
       margin-bottom: 130px;
       text-align: center;
+      @include mobile-content() {
+        margin-bottom: 50px;
+      }
     }
   }
 }
@@ -378,14 +402,26 @@ small {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 $mobile-gutter;
+  align-items: center;
+  margin: auto;
+
+  @include mobile-content() {
+    flex-direction: column;
+    max-width: 270px;
+    > div {
+      width: 100%;
+    }
+  }
 
   > div { // aspect ratio width
-    $spacing: 40px;
     flex-grow: 1;
     flex-shrink: 1;
     &:not(:first-child) {
-      padding-left: $spacing;
+      padding-left: 40px;
+      @include mobile-content() {
+        padding-left: 0;
+        padding-top: 30px;
+      }
     }
     > div { // aspect ratio height
       white-space: normal;
@@ -509,6 +545,7 @@ small {
   @include mobile-content() {
     flex-direction: column;
     align-items: stretch;
+    margin: auto;
     .Benefits-cell {
       width: 100%;
     }
