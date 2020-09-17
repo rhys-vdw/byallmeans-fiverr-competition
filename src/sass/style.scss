@@ -608,7 +608,22 @@ small {
   }
 }
 
-.Features-slide {
+.Slides {
+  max-width: 980px;
+  margin: auto;
+
+  &-slide {
+    min-height: 100vh;
+    max-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+  }
+}
+
+.Feature {
   background-image: url("images/backyard-photo.jpg");
   background-position: center;
   background-size: cover;
@@ -616,8 +631,6 @@ small {
 
   // TODO: Proper sizing.
   height: 700px;
-  // TODO: Proper spacing.
-  margin-top: 20px;
 
   padding: 50px;
   position: relative;
@@ -652,7 +665,7 @@ small {
     }
   }
 
-  &-cornerText {
+  .cornerText {
     color: $color-orange-dark;
     background: $color-orange;
     padding: 20px;
@@ -665,7 +678,7 @@ small {
     &.left { left: 0; }
   }
 
-  &-point {
+  .point {
     white-space: nowrap;
 
     &.a {
