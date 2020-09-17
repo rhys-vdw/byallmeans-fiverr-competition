@@ -710,6 +710,9 @@ small {
   min-height: 100vh;
   min-width: 100%;
   padding: 50px;
+  @include mobile-content() {
+    padding: $mobile-gutter;
+  }
 
   background-color: $color-green;
   color: $color-green-dark;
@@ -726,21 +729,25 @@ small {
     flex-grow: 1;
 
     margin: auto;
-    min-width: 580px;
     max-width: 980px;
-    height: 600px;
 
     border: 6px solid $color-yellow;
     box-sizing: border-box;
     border-radius: 6px;
 
     padding: 150px $mobile-gutter 80px $mobile-gutter;
+    @include mobile-content {
+      padding: 80px 45px 56px 45px;
+    }
 
     p {
       line-height: 120%;
       max-width: 580px;
       margin: auto;
       padding-bottom: 150px;
+      @include mobile-content() {
+        padding-bottom: 90px;
+      }
     }
   }
 
@@ -754,11 +761,7 @@ small {
   }
 
   h1 {
-    color: $color-yellow;
-    font-family: "Domaine Display";
-    font-style: italic;
-    font-weight: 500;
-    font-size: 60px;
+    @include heading($color-yellow, $color-white);
     margin-bottom: 46px;
   }
 }
