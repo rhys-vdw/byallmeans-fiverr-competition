@@ -196,20 +196,20 @@ small {
   background: $color-pink-light;
   padding: 303px 24px 313px 24px;
 
+  @include mobile-content() {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   h1 {
     @include heading($color-pink-medium, $color-pink-dark);
+    text-align: center;
   }
 
   &-content {
     width: 780px;
     max-width: 100%;
     margin: auto;
-
-    font-family: Macan;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 140%;
   }
 }
 
