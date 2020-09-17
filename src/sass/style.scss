@@ -534,7 +534,7 @@ small {
 
     border: 2px solid $color-white;
   }
-  &-checkbox:focus {
+  &-input:focus+&-checkbox, &-checkbox:focus {
     border: 2px solid $color-pink;
     outline: none;
   }
