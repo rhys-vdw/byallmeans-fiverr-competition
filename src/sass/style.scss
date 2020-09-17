@@ -507,7 +507,7 @@ small {
 }
 
 .Checkbox {
-  display: block;
+  display: flex;
   cursor: pointer;
   margin-bottom: 20px;
   font-size: 16px;
@@ -526,10 +526,11 @@ small {
   &-checkbox {
     display: inline-block;
     vertical-align: middle;
-    width: 30px;
+    min-width: 30px;
     height: 30px;
     background-color: $color-white;
     border-radius: 6px;
+    margin-right: 20px;
 
     border: 2px solid $color-white;
   }
