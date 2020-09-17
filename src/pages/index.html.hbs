@@ -92,9 +92,7 @@
       </div>
       <div class="Slides">
         <div class="Slides-blips">
-          <div class="Slides-blip active"></div>
-          <div class="Slides-blip"></div>
-          <div class="Slides-blip"></div>
+          <!-- added procedurally -->
         </div>
         {{#> slide}}
           <div class="cornerText bottom right">
@@ -364,6 +362,29 @@
           }
         })
       })
+    });
+
+    // Init blips.
+    const slides = document.getElementsByClassName("Slides-slide");
+    const blipContainer = document.getElementsByClassName("Slides-blips")[0];
+    for (let i = 0; i < slides.length; i++) {
+      const blip = document.createElement("div");
+      blip.classList.add("Slides-blip");
+      blipContainer.appendChild(blip);
+    }
+
+    // Handle scroll.
+    document.addEventListener("scroll", () => {
+      const container = document.getElementsByClassName("Slides")[0];
+      if (container == null) return;
+      const bounds = container.getBoundingClientRect();
+      const isActive = bounds.top < 0 && bounds.bottom > window.innerHeight;
+      blipContainer.style.opacity = isActive ? 1 : 0;
+      const contents = document.getElementsByClassName("Slides-slide-content");
+      const position = isActive ? "fixed" : "absolute";
+      Array.from(contents).forEach(e => {
+        e.style.position = position;
+      });
     });
   </script>
 {{/main}}

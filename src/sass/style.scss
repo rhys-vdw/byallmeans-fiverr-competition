@@ -609,30 +609,47 @@ small {
   }
 }
 
+$feature-max-width: 980px;
+
 .Slides {
+  max-width: $feature-max-width;
   position: relative;
-  max-width: 980px;
   margin: auto;
 
   &-slide {
-    min-height: 100vh;
-    max-height: 100vh;
+    position: relative;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: stretch;
+    &, &-content {
+      min-height: 100vh;
+      max-height: 100vh;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: stretch;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
 
   &-blips {
-    position: absolute;
+    position: fixed;
+    opacity: 0;
     height: 100vh;
-    left: 100%;
-    padding-left: 40px;
+    left: 50%;
+    top: 0;
+    padding-left: $feature-max-width / 2 + 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: opacity 200ms;
   }
 
   &-blip {
@@ -655,6 +672,9 @@ small {
   background-size: cover;
   background-repeat: no-repeat;
 
+  width: 100%;
+  max-width: $feature-max-width;
+  margin: auto;
   // TODO: Proper sizing.
   height: 700px;
 
