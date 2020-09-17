@@ -16,7 +16,13 @@ $color-green-dark: #003912;
 $color-orange: #FF7640;
 $color-orange-dark: #421300;
 
-$mobile-gutter: 24px;
+$mobile-gutter: 25px;
+
+@mixin mobile-content {
+  @media (max-width: $desktop-min-width) {
+    @content;
+  }
+}
 
 
 * {
@@ -29,6 +35,11 @@ body {
   line-height: 140%;
   font-weight: 500;
   margin: 0;
+
+  @include mobile-content {
+    font-size: 16px;
+    line-height: 160%;
+  }
 
   overflow-x: hidden;
 }
@@ -47,17 +58,17 @@ small {
   font-weight: normal;
 }
 
-@mixin heading($color, $strong-color) {
-  white-space: nowrap;
-  font-size: 60px;
+@mixin heading($color, $strong-color, $font-size: 60px) {
   color: $color;
-
+  font-size: $font-size;
   font-family: "Domaine Display";
   font-style: italic;
   font-weight: 500;
+  line-height: 130%;
 
-  // Expand height to cover all text.
-  padding: 0.3em 0;
+  @include mobile-content {
+    font-size: 30px;
+  }
 
   strong {
     color: $strong-color;
@@ -68,12 +79,16 @@ small {
   }
 }
 
-main header {
+.FiverLogo {
   text-align: center;
   h1 {
     display: inline-block;
     margin-top: 100px;
     margin-bottom: 60px;
+    @include mobile-content() {
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -81,15 +96,24 @@ main header {
   text-align: center;
   background-image: url("images/header-background-temp.jpg");
   background-size: cover;
-  padding: 90px $mobile-gutter 80px $mobile-gutter;
+  padding: 90px 0 80px 0;
 
   margin-bottom: 60px;
 
+  @include mobile-content {
+    padding: $mobile-gutter 0;
+    margin-bottom: 40px;
+  }
+
   &-heading {
-    @include heading($color-white, $color-yellow);
-    &-win { font-size: 70px; }
+    @include heading($color-white, $color-yellow, $font-size: 70px);
+    margin-bottom: 0;
+
     &-pod {
       font-size: 340px;
+      @include mobile-content {
+        font-size: 150px;
+      }
       line-height: 94%;
       white-space: nowrap;
       &-o {
@@ -109,15 +133,14 @@ main header {
         }
       }
     }
-    margin-bottom: 0;
   }
 
   &-sub {
     font-family: Macan;
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
-    color: $color-white
+    color: $color-white;
+    padding: 0 $mobile-gutter;
   }
 }
 
@@ -187,6 +210,9 @@ main header {
 .Section {
   p {
     margin-bottom: 55px;
+    @include mobile-content {
+      margin-bottom: 30px;
+    }
   }
 
   &-centeredText {
@@ -196,6 +222,8 @@ main header {
   &-content {
     max-width: $content-width;
     margin: auto;
+    padding-left: $mobile-gutter;
+    padding-right: $mobile-gutter;
 
     &-note {
       font-size: 14px;
@@ -207,6 +235,9 @@ main header {
   &--winAPod {
     color: $color-green-dark;
     padding-bottom: 240px;
+    @include mobile-content() {
+      padding-bottom: 98px;
+    }
   }
 
   &--winAPod &-feature {
@@ -222,6 +253,11 @@ main header {
     font-size: 32px;
     line-height: 120%;
 
+    @include mobile-content {
+      font-size: 24px;
+      padding: 27px 24px;
+    }
+
     strong {
       color: $color-green;
       font-family: Macan;
@@ -234,28 +270,44 @@ main header {
   &--becomeASeller1 {
     h1 {
       @include heading($color-green-dark, $color-green);
+      text-align: center;
       margin-bottom: 50px;
+      @include mobile-content {
+        padding: 0 $mobile-gutter;
+      }
     }
     color: $color-green-dark;
   }
-  &--becomeASeller2 {
+
+  &--becomeASeller2, &--thePrize {
     background-color: $color-green;
+    color: $color-green-dark;
     padding-bottom: 300px;
+    @include mobile-content() {
+      padding-bottom: 150px;
+    }
   }
 
   &--thePrize {
-    background: $color-green;
-    color: $color-green-dark;
-    padding-bottom: 300px;
+    @include mobile-content {
+      text-align: center;
+    }
     h1 {
-      @include heading($color-white, $color-green-dark);
-      font-size: 70px;
+      @include heading($color-white, $color-green-dark, $font-size: 70px);
       margin-bottom: 0.5em;
     }
   }
   &--thePrize &-content {
     display: flex;
     flex-direction: row;
+
+    @include mobile-content() {
+      flex-direction: column-reverse;
+      &-right {
+        min-height: 339px;
+        margin-bottom: 50px;
+      }
+    }
 
     &-text {
       padding-right: 1em;
@@ -453,6 +505,15 @@ main header {
 
 .Benefits {
   display: flex;
+
+  @include mobile-content() {
+    flex-direction: column;
+    align-items: stretch;
+    .Benefits-cell {
+      width: 100%;
+    }
+  }
+
   &-cell {
     width: 50%;
 
@@ -527,6 +588,12 @@ main header {
     right: 50px;
     top: 50px;
     bottom: 50px;
+    @include mobile-content() {
+      left: $mobile-gutter;
+      right: $mobile-gutter;
+      top: $mobile-gutter;
+      bottom: $mobile-gutter;
+    }
 
     border: 6px solid $color-orange;
     border-radius: 6px;
@@ -539,7 +606,10 @@ main header {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    // align-items: center;
+
+    @include mobile-content {
+      font-size: 14px;
+    }
   }
 
   &-cornerText {
@@ -556,15 +626,7 @@ main header {
   }
 
   &-point {
-    .content {
-      display: inline-block;
-      color: $color-white;
-      background: rgba($color-black, 0.5);
-      border: 6px solid $color-orange;
-      border-radius: 6px;
-      padding: 20px;
-      white-space: nowrap;
-    }
+    white-space: nowrap;
 
     &.a {
       text-align: right;
@@ -585,6 +647,21 @@ main header {
     &.e {
       text-align: left;
       padding-left: 8%;
+    }
+
+    @include mobile-content() {
+      padding: 0 8% !important;
+      white-space: normal;
+    }
+
+    .content {
+      display: inline-block;
+      color: $color-white;
+      background: rgba($color-black, 0.5);
+      border: 6px solid $color-orange;
+      border-radius: 6px;
+      padding: 20px;
+      text-align: left;
     }
   }
 }
