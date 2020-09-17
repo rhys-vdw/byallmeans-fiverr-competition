@@ -360,7 +360,7 @@
       const maxSize = parseInt(maxSizeString);
       element.addEventListener("change", () => {
         Array.from(element.files).forEach(file => {
-          const sizeMb = file.size * 1024 * 1024;
+          const sizeMb = file.size / 1024 / 1024;
           if (sizeMb > maxSize) {
             element.setCustomValidity("File is larger than maximum size of " + maxSize + "MB");
           } else {
