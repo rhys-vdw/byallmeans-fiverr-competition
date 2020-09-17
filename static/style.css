@@ -516,6 +516,10 @@ body {
   font-weight: 500;
   margin: 0;
   overflow-x: hidden; }
+  @media (max-width: 860px) {
+    body {
+      font-size: 16px;
+      line-height: 160%; } }
 
 a {
   font-weight: bold;
@@ -528,39 +532,50 @@ small {
   font-size: 14px;
   font-weight: normal; }
 
-main header {
+.FiverLogo {
   text-align: center; }
-  main header h1 {
+  .FiverLogo h1 {
     display: inline-block;
     margin-top: 100px;
     margin-bottom: 60px; }
+    @media (max-width: 860px) {
+      .FiverLogo h1 {
+        margin-top: 60px;
+        margin-bottom: 30px; } }
 
 .Hero {
   text-align: center;
   background-image: url("images/header-background-temp.jpg");
   background-size: cover;
-  padding: 90px 24px 80px 24px;
+  padding: 90px 0 80px 0;
   margin-bottom: 60px; }
+  @media (max-width: 860px) {
+    .Hero {
+      padding: 25px 0;
+      margin-bottom: 40px; } }
   .Hero-heading {
-    white-space: nowrap;
-    font-size: 60px;
     color: white;
+    font-size: 70px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    padding: 0.3em 0;
+    line-height: 130%;
     margin-bottom: 0; }
+    @media (max-width: 860px) {
+      .Hero-heading {
+        font-size: 30px; } }
     .Hero-heading strong {
       color: #D0E500;
       font-family: Macan;
       font-style: normal;
       font-weight: bold; }
-    .Hero-heading-win {
-      font-size: 70px; }
     .Hero-heading-pod {
       font-size: 340px;
       line-height: 94%;
       white-space: nowrap; }
+      @media (max-width: 860px) {
+        .Hero-heading-pod {
+          font-size: 150px; } }
       .Hero-heading-pod-o {
         position: relative; }
         .Hero-heading-pod-o:after {
@@ -579,8 +594,8 @@ main header {
     font-family: Macan;
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
-    color: white; }
+    color: white;
+    padding: 0 25px; }
 
 .Button {
   display: block;
@@ -616,13 +631,15 @@ main header {
   background: #FFD3E2;
   padding: 303px 24px 313px 24px; }
   .Terms h1 {
-    white-space: nowrap;
-    font-size: 60px;
     color: #BE5272;
+    font-size: 60px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    padding: 0.3em 0; }
+    line-height: 130%; }
+    @media (max-width: 860px) {
+      .Terms h1 {
+        font-size: 30px; } }
     .Terms h1 strong {
       color: #4D1727;
       font-family: Macan;
@@ -640,13 +657,21 @@ main header {
 
 .Section p {
   margin-bottom: 55px; }
+  @media (max-width: 860px) {
+    .Section p {
+      margin-bottom: 30px; } }
 
 .Section-centeredText {
   text-align: center; }
 
 .Section-content {
   max-width: 780px;
-  margin: auto; }
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px; }
+  @media (max-width: 860px) {
+    .Section-content {
+      max-width: 580px; } }
   .Section-content-note {
     font-size: 14px;
     font-weight: normal;
@@ -655,6 +680,9 @@ main header {
 .Section--winAPod {
   color: #003912;
   padding-bottom: 240px; }
+  @media (max-width: 860px) {
+    .Section--winAPod {
+      padding-bottom: 98px; } }
 
 .Section--winAPod .Section-feature {
   text-align: center;
@@ -666,6 +694,10 @@ main header {
   font-weight: 500;
   font-size: 32px;
   line-height: 120%; }
+  @media (max-width: 860px) {
+    .Section--winAPod .Section-feature {
+      font-size: 24px;
+      padding: 27px 24px; } }
   .Section--winAPod .Section-feature strong {
     color: #00C16B;
     font-family: Macan;
@@ -673,50 +705,73 @@ main header {
     font-style: normal;
     padding: 0 0.1em; }
 
+@media (min-width: 860px) {
+  .Section--becomeASeller1 .Section-content, .Section--becomeASeller2 .Section-content {
+    max-width: 800px; } }
+
 .Section--becomeASeller1 {
   color: #003912; }
   .Section--becomeASeller1 h1 {
-    white-space: nowrap;
-    font-size: 60px;
     color: #003912;
+    font-size: 60px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    padding: 0.3em 0;
+    line-height: 130%;
+    text-align: center;
+    margin-left: -25px;
+    margin-right: -25px;
     margin-bottom: 50px; }
+    @media (max-width: 860px) {
+      .Section--becomeASeller1 h1 {
+        font-size: 30px; } }
     .Section--becomeASeller1 h1 strong {
       color: #00C16B;
       font-family: Macan;
       font-style: normal;
       font-weight: bold; }
+    @media (max-width: 860px) {
+      .Section--becomeASeller1 h1 {
+        padding: 0 25px; } }
 
-.Section--becomeASeller2 {
+.Section--becomeASeller2, .Section--thePrize {
   background-color: #00C16B;
-  padding-bottom: 300px; }
-
-.Section--thePrize {
-  background: #00C16B;
   color: #003912;
   padding-bottom: 300px; }
-  .Section--thePrize h1 {
-    white-space: nowrap;
-    font-size: 60px;
-    color: white;
-    font-family: "Domaine Display";
-    font-style: italic;
-    font-weight: 500;
-    padding: 0.3em 0;
-    font-size: 70px;
-    margin-bottom: 0.5em; }
-    .Section--thePrize h1 strong {
-      color: #003912;
-      font-family: Macan;
-      font-style: normal;
-      font-weight: bold; }
+  @media (max-width: 860px) {
+    .Section--becomeASeller2, .Section--thePrize {
+      padding-bottom: 150px; } }
+
+@media (max-width: 860px) {
+  .Section--thePrize {
+    text-align: center; } }
+
+.Section--thePrize h1 {
+  color: white;
+  font-size: 70px;
+  font-family: "Domaine Display";
+  font-style: italic;
+  font-weight: 500;
+  line-height: 130%;
+  margin-bottom: 0.5em; }
+  @media (max-width: 860px) {
+    .Section--thePrize h1 {
+      font-size: 30px; } }
+  .Section--thePrize h1 strong {
+    color: #003912;
+    font-family: Macan;
+    font-style: normal;
+    font-weight: bold; }
 
 .Section--thePrize .Section-content {
   display: flex;
   flex-direction: row; }
+  @media (max-width: 860px) {
+    .Section--thePrize .Section-content {
+      flex-direction: column-reverse; }
+      .Section--thePrize .Section-content-right {
+        min-height: 339px;
+        margin-bottom: 50px; } }
   .Section--thePrize .Section-content-text {
     padding-right: 1em; }
   .Section--thePrize .Section-content-left {
@@ -735,15 +790,17 @@ main header {
   .Section--features .Section-content {
     max-width: 980px; }
   .Section--features h1 {
-    white-space: nowrap;
-    font-size: 60px;
     color: white;
+    font-size: 60px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    padding: 0.3em 0;
+    line-height: 130%;
     text-align: center;
     margin-bottom: 56px; }
+    @media (max-width: 860px) {
+      .Section--features h1 {
+        font-size: 30px; } }
     .Section--features h1 strong {
       color: #003912;
       font-family: Macan;
@@ -757,57 +814,22 @@ main header {
   .Section--howToEnter .Section-content {
     max-width: 830px; }
   .Section--howToEnter h1 {
-    white-space: nowrap;
-    font-size: 60px;
     color: #003912;
+    font-size: 60px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    padding: 0.3em 0;
+    line-height: 130%;
     text-align: center;
     margin-bottom: 67px; }
+    @media (max-width: 860px) {
+      .Section--howToEnter h1 {
+        font-size: 30px; } }
     .Section--howToEnter h1 strong {
       color: white;
       font-family: Macan;
       font-style: normal;
       font-weight: bold; }
-  .Section--howToEnter .Steps {
-    text-align: center;
-    white-space: nowrap; }
-    .Section--howToEnter .Steps > div {
-      display: inline-block;
-      width: calc((100% - 80px) / 3); }
-      .Section--howToEnter .Steps > div:not(:first-child) {
-        margin-left: 40px; }
-      .Section--howToEnter .Steps > div > div {
-        white-space: normal;
-        background: white;
-        overflow: hidden;
-        border-radius: 50%;
-        height: 0;
-        padding-top: 100%;
-        position: relative; }
-    .Section--howToEnter .Steps-number {
-      position: absolute;
-      top: 24%;
-      left: 15%;
-      right: 15%;
-      bottom: 54%;
-      font-family: "Domaine Display";
-      font-style: normal;
-      font-weight: 800;
-      font-size: 60px;
-      line-height: 100%; }
-    .Section--howToEnter .Steps-text {
-      position: absolute;
-      top: 52%;
-      left: 15%;
-      right: 15%;
-      bottom: 15%;
-      text-align: center;
-      font-size: 16px;
-      font-weight: normal;
-      line-height: 120%; }
 
 .Section--form {
   padding-top: 120px;
@@ -815,24 +837,86 @@ main header {
   color: #4D1727;
   background: #FFD3E2; }
   .Section--form .Section-content {
-    width: 580px; }
+    width: 580px;
+    max-width: 100%; }
   .Section--form .Section-submitRow {
     padding-top: 100px; }
   .Section--form h1 {
-    white-space: nowrap;
-    font-size: 60px;
     color: #BE5272;
+    font-size: 60px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    padding: 0.3em 0;
+    line-height: 130%;
     margin-bottom: 130px;
     text-align: center; }
+    @media (max-width: 860px) {
+      .Section--form h1 {
+        font-size: 30px; } }
     .Section--form h1 strong {
       color: #4D1727;
       font-family: Macan;
       font-style: normal;
       font-weight: bold; }
+    @media (max-width: 860px) {
+      .Section--form h1 {
+        margin-bottom: 50px; } }
+
+.Steps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto; }
+  @media (max-width: 860px) {
+    .Steps {
+      flex-direction: column;
+      max-width: 270px; }
+      .Steps > div {
+        width: 100%; } }
+  .Steps > div {
+    flex-grow: 1;
+    flex-shrink: 1; }
+    .Steps > div:not(:first-child) {
+      padding-left: 40px; }
+      @media (max-width: 860px) {
+        .Steps > div:not(:first-child) {
+          padding-left: 0;
+          padding-top: 30px; } }
+    .Steps > div > div {
+      white-space: normal;
+      background: white;
+      overflow: hidden;
+      border-radius: 50%;
+      height: 0;
+      padding-top: 100%;
+      position: relative; }
+      .Steps > div > div > div {
+        position: absolute;
+        left: 15%;
+        right: 15%;
+        top: 15%;
+        bottom: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+  .Steps-number, .Steps-text {
+    height: 50%; }
+  .Steps-number {
+    font-family: "Domaine Display";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column; }
+  .Steps-text {
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 120%; }
 
 .Field {
   position: relative; }
@@ -890,6 +974,13 @@ main header {
 
 .Benefits {
   display: flex; }
+  @media (max-width: 860px) {
+    .Benefits {
+      flex-direction: column;
+      align-items: stretch;
+      margin: auto; }
+      .Benefits .Benefits-cell {
+        width: 100%; } }
   .Benefits-cell {
     width: 50%;
     text-align: center;
@@ -951,6 +1042,15 @@ main header {
     display: flex;
     flex-direction: column;
     justify-content: space-around; }
+    @media (max-width: 860px) {
+      .Features-slide-frame {
+        left: 25px;
+        right: 25px;
+        top: 25px;
+        bottom: 25px; } }
+    @media (max-width: 860px) {
+      .Features-slide-frame {
+        font-size: 14px; } }
   .Features-slide-cornerText {
     color: #421300;
     background: #FF7640;
@@ -965,26 +1065,72 @@ main header {
       bottom: 0; }
     .Features-slide-cornerText.left {
       left: 0; }
-  .Features-slide-point .content {
-    display: inline-block;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    border: 6px solid #FF7640;
-    border-radius: 6px;
-    padding: 20px;
+  .Features-slide-point {
     white-space: nowrap; }
-  .Features-slide-point.a {
-    text-align: right;
-    padding-right: 20%; }
-  .Features-slide-point.b {
-    text-align: left;
-    padding-left: 8%; }
-  .Features-slide-point.c {
-    text-align: right;
-    padding-right: 6%; }
-  .Features-slide-point.d {
-    text-align: right;
-    padding-right: 25%; }
-  .Features-slide-point.e {
-    text-align: left;
-    padding-left: 8%; }
+    .Features-slide-point.a {
+      text-align: right;
+      padding-right: 20%; }
+    .Features-slide-point.b {
+      text-align: left;
+      padding-left: 8%; }
+    .Features-slide-point.c {
+      text-align: right;
+      padding-right: 6%; }
+    .Features-slide-point.d {
+      text-align: right;
+      padding-right: 25%; }
+    .Features-slide-point.e {
+      text-align: left;
+      padding-left: 8%; }
+    @media (max-width: 860px) {
+      .Features-slide-point {
+        padding: 0 8% !important;
+        white-space: normal; } }
+    .Features-slide-point .content {
+      display: inline-block;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      border: 6px solid #FF7640;
+      border-radius: 6px;
+      padding: 20px;
+      text-align: left; }
+
+.Congratulations {
+  min-height: 100vh;
+  min-width: 100%;
+  padding: 50px;
+  background-color: #00C16B;
+  color: #003912;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .Congratulations .content {
+    flex-grow: 1;
+    margin: auto;
+    min-width: 580px;
+    max-width: 980px;
+    height: 600px;
+    border: 6px solid #D0E500;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 150px 25px 80px 25px; }
+    .Congratulations .content p {
+      line-height: 120%;
+      max-width: 580px;
+      margin: auto;
+      padding-bottom: 150px; }
+  .Congratulations .socials {
+    margin: auto;
+    max-width: 236px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+  .Congratulations h1 {
+    color: #D0E500;
+    font-family: "Domaine Display";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 60px;
+    margin-bottom: 46px; }
