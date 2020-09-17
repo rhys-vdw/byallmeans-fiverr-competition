@@ -13,6 +13,7 @@ $color-pink-dark: #4D1727;
 $color-white: white;
 $color-black: black;
 $color-green: #00C16B;
+$color-green-medium: #00732E;
 $color-green-dark: #003912;
 $color-orange: #FF7640;
 $color-orange-dark: #421300;
@@ -609,6 +610,7 @@ small {
 }
 
 .Slides {
+  position: relative;
   max-width: 980px;
   margin: auto;
 
@@ -620,6 +622,30 @@ small {
     flex-direction: column;
     justify-content: center;
     align-content: stretch;
+  }
+
+  &-blips {
+    position: absolute;
+    height: 100vh;
+    left: 100%;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-blip {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $color-green-medium;
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+    &.active {
+      background-color: $color-green-dark;
+    }
   }
 }
 
