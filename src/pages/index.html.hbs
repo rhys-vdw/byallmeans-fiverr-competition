@@ -376,7 +376,7 @@
     });
 
     // Init blips.
-    const slides = document.getElementsByClassName("Slides-slide");
+    const slides = Array.from(document.getElementsByClassName("Slides-slide"));
     const blipContainer = document.getElementsByClassName("Slides-blips")[0];
     for (let i = 0; i < slides.length; i++) {
       const blip = document.createElement("div");
@@ -385,17 +385,50 @@
     }
 
     // Handle scroll.
+    const slidesContainer = document.getElementsByClassName("Slides")[0];
     document.addEventListener("scroll", () => {
-      const container = document.getElementsByClassName("Slides")[0];
-      if (container == null) return;
-      const bounds = container.getBoundingClientRect();
+      const bounds = slidesContainer.getBoundingClientRect();
       const isActive = bounds.top < 0 && bounds.bottom > window.innerHeight;
       blipContainer.style.opacity = isActive ? 1 : 0;
-      const contents = document.getElementsByClassName("Slides-slide-content");
-      const position = isActive ? "fixed" : "absolute";
-      Array.from(contents).forEach(e => {
-        e.style.position = position;
-      });
+
+      const current = (element) => {
+        element.style.position = "fixed";
+        element.style.opacity = 1;
+      }
+      const next = (element) => {
+        element.style.position = "fixed";
+        element.style.opacity = 0.5;
+      }
+      const reset = (element) => {
+        element.style.position = "absolute";
+        element.style.opacity = 1;
+      }
+
+      if (isActive) {
+        for (let i = 0; i < slides.length; i++) {
+          const slide = slides[i];
+          const rect = slide.getBoundingClientRect();
+          const content = slide.querySelector(".Slides-slide-content");
+          if (rect.bottom < 0) {
+            console.log("Before!");
+            reset(content);
+          } else if (rect.top < 0 && rect.bottom < window.innerHeight) {
+            console.log("Current");
+            current(content);
+          } else if (rect.top < window.innerHeight) {
+            console.log("Next");
+            next(content);
+          } else {
+            console.log("After");
+            reset(content);
+          }
+        }
+      } else {
+        for (const slide of slides) {
+          const content = slide.querySelector(".Slides-slide-content");
+          reset(content);
+        }
+      }
     });
   </script>
 {{/main}}
