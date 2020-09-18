@@ -356,9 +356,13 @@ small {
       // Align image.
       position: relative;
 
-      &:after {
+      &-image:after {
         display: block;
-        content: ' ';
+        content: "";
+        background-image: url("images/pod.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
 
         position: absolute;
         top: 3%;
@@ -366,10 +370,12 @@ small {
         right: 0;
         bottom: 14%;
 
-        background-image: url("images/pod.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+        @include mobile-content() {
+          top: -5%;
+          left: 0;
+          right: 0;
+          bottom: 5%;
+        }
       }
     }
   }
