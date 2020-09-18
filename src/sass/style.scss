@@ -343,14 +343,34 @@ small {
       padding-right: 1em;
     }
     &-left {
-      flex-basis: 60%;
+      flex-basis: 55%;
     }
     &-right {
-      flex-basis: 40%;
-      background-image: url("images/the-prize.png");
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
+      flex-basis: 45%;
+
+      // Align circle.
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      // Align image.
+      position: relative;
+
+      &:after {
+        display: block;
+        content: ' ';
+
+        position: absolute;
+        top: 3%;
+        left: 0;
+        right: 0;
+        bottom: 14%;
+
+        background-image: url("images/pod.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
     }
   }
 
