@@ -217,6 +217,7 @@ small {
 
 .Section {
   p {
+    margin-top: 0;
     margin-bottom: 55px;
     @include mobile-content {
       margin-bottom: 30px;
@@ -305,6 +306,13 @@ small {
     background-color: $color-green;
     color: $color-green-dark;
     padding-bottom: $section-spacing;
+
+    .Section-centeredText {
+      margin-top: 50px;
+      @include mobile-content() {
+        margin-bottom: 30px;
+      }
+    }
   }
 
   &--thePrize {
@@ -313,15 +321,18 @@ small {
     }
     h1 {
       @include heading($color-white, $color-green-dark, $font-size: 70px);
-      margin-bottom: 0.5em;
+      margin-bottom: 10px;
     }
   }
   &--thePrize &-content {
     display: flex;
     flex-direction: row;
+    max-width: 850px;
 
     @include mobile-content() {
       flex-direction: column-reverse;
+      padding-left: $mobile-gutter;
+      padding-right: $mobile-gutter;
       &-right {
         min-height: 339px;
         margin-bottom: 50px;
