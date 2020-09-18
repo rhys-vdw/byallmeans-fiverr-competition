@@ -101,16 +101,34 @@ small {
 }
 
 .Hero {
+  overflow: hidden;
   text-align: center;
-  background-image: url("images/header-background-temp.jpg");
-  background-size: cover;
   padding: 90px 0 80px 0;
 
   margin-bottom: 60px;
 
+  position: relative;
+
   @include mobile-content {
     padding: $mobile-gutter 0;
     margin-bottom: 40px;
+  }
+
+  &-videoContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: hidden;
+  }
+  &-video {
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  &-foreground {
+    position: relative;
   }
 
   &-heading {
