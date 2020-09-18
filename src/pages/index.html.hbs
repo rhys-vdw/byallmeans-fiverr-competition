@@ -193,7 +193,12 @@
         enctype="multipart/form-data"
         method="POST"
       >
-        {{> field id="fullName" label="Full name" required=true}}
+        {{> field
+          id="fullName"
+          label="Full name"
+          placeholder="Jane Smith"
+          required=true
+        }}
         {{> field
           id="accountName"
           label="Fiverr account name"
