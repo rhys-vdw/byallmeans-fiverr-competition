@@ -29,6 +29,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1">
     <title>Fiverr - Win a freelance Escape Pod</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="static/style.css">
   </head>
   <body  >  <main>
@@ -75,7 +77,11 @@
       <div class="Section-content">
         <h1>Why <strong>become a Fiverr</strong> seller?</h1>
         <div class="Benefits">
-          <div class="Benefits-cell Benefits-cell--clients">
+          <div
+            class="Benefits-cell Benefits-cell--clients"
+            data-aos="flip-left"
+            data-offset="200"
+          >
             <div><div><div>
               Stop<br>
               chasing clients.<br>
@@ -83,7 +89,12 @@
               to you.</strong>
             </div></div></div>
           </div>
-          <div class="Benefits-cell Benefits-cell--invoices">
+          <div
+            class="Benefits-cell Benefits-cell--invoices"
+            data-aos="flip-down"
+            data-aos-delay="200"
+            data-offset="300"
+          >
             <div><div><div>
               Stop<br>
               chasing invoices.<br>
@@ -95,16 +106,25 @@
       </div>
     </section>
 
-    <section class="Section Section--becomeASeller2">
+    <section class="Section Section--becomeASeller2" >
       <div class="Section-content">
         <div class="Benefits">
-          <div class="Benefits-cell Benefits-cell--global">
+          <div
+            class="Benefits-cell Benefits-cell--global"
+            data-aos="flip-up"
+            data-offset="200"
+          >
             <div><div><div>
               Get work locally<br>
               <strong>and globally.</strong>
             </div></div></div>
           </div>
-          <div class="Benefits-cell Benefits-cell--focus">
+          <div
+            class="Benefits-cell Benefits-cell--focus"
+            data-aos="flip-right"
+            data-aos-delay="200"
+            data-offset="300"
+          >
             <div><div><div>
               Focus on what<br> you’re good at.<br>
               <strong>We’ll look after<br> the rest.</strong>
@@ -562,6 +582,8 @@
         }
       }
     });
+
+    AOS.init();
   </script>
 </body>
 </html>
