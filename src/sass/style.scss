@@ -19,6 +19,7 @@ $color-orange: #FF7640;
 $color-orange-dark: #421300;
 
 $mobile-gutter: 25px;
+$section-spacing: 150px;
 
 @mixin mobile-content {
   @media (max-width: $desktop-min-width) {
@@ -245,7 +246,7 @@ small {
 
   &--winAPod {
     color: $color-green-dark;
-    padding-bottom: 240px;
+    padding-bottom: $section-spacing;
     @include mobile-content() {
       padding-bottom: 98px;
     }
@@ -303,10 +304,7 @@ small {
   &--becomeASeller2, &--thePrize {
     background-color: $color-green;
     color: $color-green-dark;
-    padding-bottom: 300px;
-    @include mobile-content() {
-      padding-bottom: 150px;
-    }
+    padding-bottom: $section-spacing;
   }
 
   &--thePrize {
@@ -348,7 +346,7 @@ small {
   &--features {
     background: $color-green;
     color: $color-green-dark;
-    padding-bottom: 200px;
+    padding-bottom: $section-spacing;
     .Section-content {
       max-width: 980px;
     }
