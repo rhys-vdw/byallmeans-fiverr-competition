@@ -630,13 +630,18 @@ small {
   color: #4D1727;
   background: #FFD3E2;
   padding: 303px 24px 313px 24px; }
+  @media (max-width: 860px) {
+    .Terms {
+      padding-top: 50px;
+      padding-bottom: 50px; } }
   .Terms h1 {
     color: #BE5272;
     font-size: 60px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    line-height: 130%; }
+    line-height: 130%;
+    text-align: center; }
     @media (max-width: 860px) {
       .Terms h1 {
         font-size: 30px; } }
@@ -648,14 +653,10 @@ small {
   .Terms-content {
     width: 780px;
     max-width: 100%;
-    margin: auto;
-    font-family: Macan;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 140%; }
+    margin: auto; }
 
 .Section p {
+  margin-top: 0;
   margin-bottom: 55px; }
   @media (max-width: 860px) {
     .Section p {
@@ -679,7 +680,7 @@ small {
 
 .Section--winAPod {
   color: #003912;
-  padding-bottom: 240px; }
+  padding-bottom: 150px; }
   @media (max-width: 860px) {
     .Section--winAPod {
       padding-bottom: 98px; } }
@@ -737,10 +738,12 @@ small {
 .Section--becomeASeller2, .Section--thePrize {
   background-color: #00C16B;
   color: #003912;
-  padding-bottom: 300px; }
-  @media (max-width: 860px) {
-    .Section--becomeASeller2, .Section--thePrize {
-      padding-bottom: 150px; } }
+  padding-bottom: 150px; }
+  .Section--becomeASeller2 .Section-centeredText, .Section--thePrize .Section-centeredText {
+    margin-top: 50px; }
+    @media (max-width: 860px) {
+      .Section--becomeASeller2 .Section-centeredText, .Section--thePrize .Section-centeredText {
+        margin-bottom: 30px; } }
 
 @media (max-width: 860px) {
   .Section--thePrize {
@@ -753,7 +756,7 @@ small {
   font-style: italic;
   font-weight: 500;
   line-height: 130%;
-  margin-bottom: 0.5em; }
+  margin-bottom: 10px; }
   @media (max-width: 860px) {
     .Section--thePrize h1 {
       font-size: 30px; } }
@@ -765,28 +768,49 @@ small {
 
 .Section--thePrize .Section-content {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  max-width: 850px; }
   @media (max-width: 860px) {
     .Section--thePrize .Section-content {
-      flex-direction: column-reverse; }
+      flex-direction: column-reverse;
+      padding-left: 25px;
+      padding-right: 25px; }
       .Section--thePrize .Section-content-right {
         min-height: 339px;
         margin-bottom: 50px; } }
   .Section--thePrize .Section-content-text {
     padding-right: 1em; }
   .Section--thePrize .Section-content-left {
-    flex-basis: 60%; }
+    flex-basis: 55%; }
   .Section--thePrize .Section-content-right {
-    flex-basis: 40%;
-    background-image: url("images/the-prize.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat; }
+    flex-basis: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; }
+    .Section--thePrize .Section-content-right-image:after {
+      display: block;
+      content: "";
+      background-image: url("images/pod.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 3%;
+      left: 0;
+      right: 0;
+      bottom: 14%; }
+      @media (max-width: 860px) {
+        .Section--thePrize .Section-content-right-image:after {
+          top: -5%;
+          left: 0;
+          right: 0;
+          bottom: 5%; } }
 
 .Section--features {
   background: #00C16B;
   color: #003912;
-  padding-bottom: 200px; }
+  padding-bottom: 150px; }
   .Section--features .Section-content {
     max-width: 980px; }
   .Section--features h1 {
@@ -947,7 +971,7 @@ small {
     border-radius: 6px; }
 
 .Checkbox {
-  display: block;
+  display: flex;
   cursor: pointer;
   margin-bottom: 20px;
   font-size: 16px; }
@@ -963,12 +987,13 @@ small {
   .Checkbox-checkbox {
     display: inline-block;
     vertical-align: middle;
-    width: 30px;
+    min-width: 30px;
     height: 30px;
     background-color: white;
     border-radius: 6px;
+    margin-right: 20px;
     border: 2px solid white; }
-  .Checkbox-checkbox:focus {
+  .Checkbox-input:focus + .Checkbox-checkbox, .Checkbox-checkbox:focus {
     border: 2px solid #FF80AE;
     outline: none; }
 
@@ -1018,16 +1043,59 @@ small {
       color: white;
       background: #FF7640; }
 
-.Features-slide {
+.Slides {
+  max-width: 980px;
+  position: relative;
+  margin: auto; }
+  .Slides-slide {
+    position: relative; }
+    .Slides-slide, .Slides-slide-content {
+      min-height: 100vh;
+      max-height: 100vh; }
+    .Slides-slide-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: stretch;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+  .Slides-blips {
+    position: fixed;
+    opacity: 0;
+    height: 100vh;
+    left: 50%;
+    top: 0;
+    padding-left: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 200ms; }
+  .Slides-blip {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00732E; }
+    .Slides-blip:not(:first-child) {
+      margin-top: 20px; }
+    .Slides-blip.active {
+      background-color: #003912; }
+
+.Feature {
   background-image: url("images/backyard-photo.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
+  max-width: 980px;
+  margin: auto;
   height: 700px;
-  margin-top: 20px;
   padding: 50px;
   position: relative; }
-  .Features-slide-frame {
+  .Feature-frame {
     position: absolute;
     left: 50px;
     right: 50px;
@@ -1043,50 +1111,50 @@ small {
     flex-direction: column;
     justify-content: space-around; }
     @media (max-width: 860px) {
-      .Features-slide-frame {
+      .Feature-frame {
         left: 25px;
         right: 25px;
         top: 25px;
         bottom: 25px; } }
     @media (max-width: 860px) {
-      .Features-slide-frame {
+      .Feature-frame {
         font-size: 14px; } }
-  .Features-slide-cornerText {
+  .Feature .cornerText {
     color: #421300;
     background: #FF7640;
     padding: 20px;
     max-width: 400px;
     position: absolute; }
-    .Features-slide-cornerText.top {
+    .Feature .cornerText.top {
       top: 0; }
-    .Features-slide-cornerText.right {
+    .Feature .cornerText.right {
       right: 0; }
-    .Features-slide-cornerText.bottom {
+    .Feature .cornerText.bottom {
       bottom: 0; }
-    .Features-slide-cornerText.left {
+    .Feature .cornerText.left {
       left: 0; }
-  .Features-slide-point {
+  .Feature .point {
     white-space: nowrap; }
-    .Features-slide-point.a {
+    .Feature .point.a {
       text-align: right;
       padding-right: 20%; }
-    .Features-slide-point.b {
+    .Feature .point.b {
       text-align: left;
       padding-left: 8%; }
-    .Features-slide-point.c {
+    .Feature .point.c {
       text-align: right;
       padding-right: 6%; }
-    .Features-slide-point.d {
+    .Feature .point.d {
       text-align: right;
       padding-right: 25%; }
-    .Features-slide-point.e {
+    .Feature .point.e {
       text-align: left;
       padding-left: 8%; }
     @media (max-width: 860px) {
-      .Features-slide-point {
+      .Feature .point {
         padding: 0 8% !important;
         white-space: normal; } }
-    .Features-slide-point .content {
+    .Feature .point .content {
       display: inline-block;
       color: white;
       background: rgba(0, 0, 0, 0.5);
@@ -1105,21 +1173,28 @@ small {
   display: flex;
   align-items: center;
   justify-content: center; }
+  @media (max-width: 860px) {
+    .Congratulations {
+      padding: 25px; } }
   .Congratulations .content {
     flex-grow: 1;
     margin: auto;
-    min-width: 580px;
     max-width: 980px;
-    height: 600px;
     border: 6px solid #D0E500;
     box-sizing: border-box;
     border-radius: 6px;
     padding: 150px 25px 80px 25px; }
+    @media (max-width: 860px) {
+      .Congratulations .content {
+        padding: 80px 45px 56px 45px; } }
     .Congratulations .content p {
       line-height: 120%;
       max-width: 580px;
       margin: auto;
       padding-bottom: 150px; }
+      @media (max-width: 860px) {
+        .Congratulations .content p {
+          padding-bottom: 90px; } }
   .Congratulations .socials {
     margin: auto;
     max-width: 236px;
@@ -1129,8 +1204,17 @@ small {
     align-items: center; }
   .Congratulations h1 {
     color: #D0E500;
+    font-size: 60px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
-    font-size: 60px;
+    line-height: 130%;
     margin-bottom: 46px; }
+    @media (max-width: 860px) {
+      .Congratulations h1 {
+        font-size: 30px; } }
+    .Congratulations h1 strong {
+      color: white;
+      font-family: Macan;
+      font-style: normal;
+      font-weight: bold; }
