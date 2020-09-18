@@ -378,10 +378,12 @@
     // Init blips.
     const slides = Array.from(document.getElementsByClassName("Slides-slide"));
     const blipContainer = document.getElementsByClassName("Slides-blips")[0];
+    const blips = []
     for (let i = 0; i < slides.length; i++) {
       const blip = document.createElement("div");
       blip.classList.add("Slides-blip");
       blipContainer.appendChild(blip);
+      blips.push(blip);
     }
 
     // Handle scroll.
@@ -391,9 +393,16 @@
       const isActive = bounds.top < 0 && bounds.bottom > window.innerHeight;
       blipContainer.style.opacity = isActive ? 1 : 0;
 
-      const current = (element) => {
+      const current = (element, index) => {
         element.style.position = "fixed";
         element.style.opacity = 1;
+        for (let i = 0; i < blips.length; i++) {
+          if (i == index) {
+            blips[i].classList.add("active");
+          } else {
+            blips[i].classList.remove("active");
+          }
+        }
       }
       const next = (element) => {
         element.style.position = "fixed";
@@ -412,7 +421,7 @@
           if (rect.bottom < 0) {
             reset(content);
           } else if (rect.top < 0 && rect.bottom < window.innerHeight) {
-            current(content);
+            current(content, i);
           } else if (rect.top < window.innerHeight) {
             next(content);
           } else {
