@@ -46,11 +46,16 @@
 
     <section class="Section Section--winAPod">
       <header class="Hero">
-        <h1 class="Hero-heading">
-          <span class="Hero-heading-win">Win <strong>a freelance</strong> escape</span>
-          <div class="Hero-heading-pod"><strong>P<span class="Hero-heading-pod-o">O</span>D</strong></div>
-        </h1>
-        <div class="Hero-sub">Simply by telling us why your WFH setup is a little&hellip; WTF.</div>
+        <video class="Hero-video" autoplay muted loop>
+          <source src="static/videos/header.mp4" type="video/mp4">
+        </video>
+        <div class="Hero-foreground">
+          <h1 class="Hero-heading">
+            <span class="Hero-heading-win">Win <strong>a freelance</strong> escape</span>
+            <div class="Hero-heading-pod"><strong>P<span class="Hero-heading-pod-o">O</span>D</strong></div>
+          </h1>
+          <div class="Hero-sub">Simply by telling us why your WFH setup is a little&hellip; WTF.</div>
+        </div>
       </header>
       <div class="Section-content">
         <p>
@@ -498,26 +503,64 @@
     });
 
     // Init blips.
-    const slides = document.getElementsByClassName("Slides-slide");
+    const slides = Array.from(document.getElementsByClassName("Slides-slide"));
     const blipContainer = document.getElementsByClassName("Slides-blips")[0];
+    const blips = []
     for (let i = 0; i < slides.length; i++) {
       const blip = document.createElement("div");
       blip.classList.add("Slides-blip");
       blipContainer.appendChild(blip);
+      blips.push(blip);
     }
 
     // Handle scroll.
+    const slidesContainer = document.getElementsByClassName("Slides")[0];
     document.addEventListener("scroll", () => {
-      const container = document.getElementsByClassName("Slides")[0];
-      if (container == null) return;
-      const bounds = container.getBoundingClientRect();
+      const bounds = slidesContainer.getBoundingClientRect();
       const isActive = bounds.top < 0 && bounds.bottom > window.innerHeight;
       blipContainer.style.opacity = isActive ? 1 : 0;
-      const contents = document.getElementsByClassName("Slides-slide-content");
-      const position = isActive ? "fixed" : "absolute";
-      Array.from(contents).forEach(e => {
-        e.style.position = position;
-      });
+
+      const current = (element, index) => {
+        element.style.position = "fixed";
+        element.style.opacity = 1;
+        for (let i = 0; i < blips.length; i++) {
+          if (i == index) {
+            blips[i].classList.add("active");
+          } else {
+            blips[i].classList.remove("active");
+          }
+        }
+      }
+      const next = (element) => {
+        element.style.position = "fixed";
+        element.style.opacity = 0;
+      }
+      const reset = (element) => {
+        element.style.position = "absolute";
+        element.style.opacity = 1;
+      }
+
+      if (isActive) {
+        for (let i = 0; i < slides.length; i++) {
+          const slide = slides[i];
+          const rect = slide.getBoundingClientRect();
+          const content = slide.querySelector(".Slides-slide-content");
+          if (rect.bottom < 0) {
+            reset(content);
+          } else if (rect.top < 0 && rect.bottom < window.innerHeight) {
+            current(content, i);
+          } else if (rect.top < window.innerHeight) {
+            next(content);
+          } else {
+            reset(content);
+          }
+        }
+      } else {
+        for (const slide of slides) {
+          const content = slide.querySelector(".Slides-slide-content");
+          reset(content);
+        }
+      }
     });
   </script>
 </body>
