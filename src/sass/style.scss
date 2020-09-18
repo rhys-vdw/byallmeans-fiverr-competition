@@ -390,8 +390,6 @@ small {
       @include heading($color-pink-medium, $color-pink-dark);
       margin-bottom: 130px;
       text-align: center;
-      margin-left: -40px;
-      margin-right: -40px;
       @include mobile-content() {
         margin-bottom: 50px;
       }
