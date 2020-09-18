@@ -397,7 +397,7 @@
       }
       const next = (element) => {
         element.style.position = "fixed";
-        element.style.opacity = 0.5;
+        element.style.opacity = 0;
       }
       const reset = (element) => {
         element.style.position = "absolute";
@@ -410,16 +410,12 @@
           const rect = slide.getBoundingClientRect();
           const content = slide.querySelector(".Slides-slide-content");
           if (rect.bottom < 0) {
-            console.log("Before!");
             reset(content);
           } else if (rect.top < 0 && rect.bottom < window.innerHeight) {
-            console.log("Current");
             current(content);
           } else if (rect.top < window.innerHeight) {
-            console.log("Next");
             next(content);
           } else {
-            console.log("After");
             reset(content);
           }
         }
