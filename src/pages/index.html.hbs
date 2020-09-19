@@ -289,20 +289,26 @@
           placeholder="Insert link to your Gig on Fiverr"
           required=true
         }}
-        <div class="Field">
+        <div class="Field Field--file">
           <label class="Field-label" for="photo">
             Show us your #WFHWTF situation
           </label>
-          <input
-            class="Field-input"
-            id="photo"
-            name="photo"
-            type="file"
-            required
-            placeholder="Upload your photo"
-            accept="image/*"
-            data-max-size="5"
-          />
+          <label class="Field-proxy">
+            <span class="Field-proxy-label placeholder">Upload your photo</span>
+            <span class="Button">
+              Select file
+            </span>
+            <input
+              class="Field-input"
+              id="photo"
+              name="photo"
+              type="file"
+              required
+              placeholder="Upload your photo"
+              accept="image/*"
+              data-max-size="5"
+            />
+          </label>
         </div>
         <div class="Field">
           <label
@@ -442,6 +448,20 @@
           }
         })
       })
+    });
+
+    // File uploader
+    const fileInput = document.querySelector("input[type=file]");
+    const fileLabel = document.querySelector(".Field--file .Field-proxy-label");
+    const filePlaceholder = fileLabel.innerText;
+    fileInput.addEventListener("change", event => {
+      if (fileInput.files.length > 0) {
+        fileLabel.innerText = fileInput.files[0].name;
+        fileLabel.classList.remove("placeholder");
+      } else {
+        fileLabel.innerText = filePlaceholder;
+        fileLabel.classList.add("placeholder");
+      }
     });
 
     // Disable submit button...
