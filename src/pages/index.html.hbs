@@ -444,6 +444,17 @@
       })
     });
 
+    // Disable submit button...
+    const forms = forEach(document.getElementsByTagName("form"), form => {
+      form.addEventListener("submit", () => {
+        var buttons = form.querySelectorAll("button[type=submit]");
+        forEach(buttons, button => {
+          button.disabled = true;
+          button.innerText = "Submitting...";
+        });
+      })
+    });
+
     // -- Slides --
     const slidesContainer = document.getElementsByClassName("Slides")[0];
     document.addEventListener("scroll", () => {
