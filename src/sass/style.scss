@@ -107,6 +107,9 @@ small {
 
   position: relative;
 
+  background: url("images/header-background.jpg");
+  background-size: cover;
+
   @include mobile-content {
     padding: $mobile-gutter 0;
     margin-bottom: 40px;
