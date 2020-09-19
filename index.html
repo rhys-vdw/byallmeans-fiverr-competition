@@ -48,7 +48,7 @@
 
     <section class="Section Section--winAPod">
       <header class="Hero">
-        <video class="Hero-video" autoplay muted loop>
+        <video class="Hero-video" autoplay muted loop playsinline>
           <source src="static/videos/header.mp4" type="video/mp4">
         </video>
         <div class="Hero-foreground">
@@ -63,7 +63,11 @@
         <p>
           So the whole world is suddenly WFH, huh? And while it’s probably nothing new for you, it means your partner’s suddenly Zooming all day in the kitchen, your kids are clogging up the study, or your housemate’s spreading out spreadsheets in the living room.
         </p>
-        <p class="Section-feature">
+        <p
+          class="Section-feature"
+          data-aos="fade-up"
+          data-aos-offset="200"
+        >
           Don’t you wish you could escape to your own little pod of <strong>freelancer freedom</strong> to get a little peace and quiet?!
         </p>
         <p>
@@ -172,7 +176,11 @@
   <section class="Slides-slide-content">
     <div class="Feature">
       <div class="Feature-frame">
-                  <div class="cornerText bottom right">
+                  <div
+            class="cornerText bottom right"
+            data-aos="zoom-in-left"
+            data-aos-anchor-position="bottom-center"
+          >
             Purpose-designed home office pod by award winning Melbourne-based prefabricated building company, Harwyn.
           </div>
 
@@ -184,7 +192,11 @@
   <section class="Slides-slide-content">
     <div class="Feature">
       <div class="Feature-frame">
-                  <div class="cornerText top left">
+                  <div
+            class="cornerText top left"
+            data-aos="zoom-in-right"
+            data-aos-anchor-position="bottom-center"
+          >
             Size: 2.2m &times; 2.2m (total external dimensions)<br>
             Fully designed, engineered, certified, and built in Australia.
           </div>
@@ -197,7 +209,11 @@
   <section class="Slides-slide-content">
     <div class="Feature">
       <div class="Feature-frame">
-                  <div class="cornerText bottom left">
+                  <div
+            class="cornerText bottom left"
+            data-aos="zoom-in-up"
+            data-aos-anchor-position="bottom-center"
+          >
             100% Australian materials.<br>
             Permanent structure that has the ability to be easily relocated.
           </div>
@@ -210,7 +226,11 @@
   <section class="Slides-slide-content">
     <div class="Feature">
       <div class="Feature-frame">
-                  <div class="cornerText top right">
+                  <div
+            class="cornerText top right"
+            data-aos="zoom-in-down"
+            data-aos-anchor-position="bottom-center"
+          >
             High levels of thermal and acoustic insulation.<br>
             Commercial fixed and awning window sets.
           </div>
@@ -223,27 +243,46 @@
   <section class="Slides-slide-content">
     <div class="Feature">
       <div class="Feature-frame">
-                  <div class="point a">
+                  <div
+            class="point a"
+            data-aos="fade-right"
+          >
             <div class="content">
               Architectural LED lighting system
             </div>
           </div>
-          <div class="point b">
+          <div
+            class="point b"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
             <div class="content">
               Climate control system
             </div>
           </div>
-          <div class="point c">
+          <div
+            class="point c"
+            data-aos="fade-right"
+            data-aos-delay="400"
+          >
             <div class="content">
               Delivery and installation
             </div>
           </div>
-          <div class="point d">
+          <div
+            class="point d"
+            data-aos="fade-right"
+            data-aos-delay="600"
+          >
             <div class="content">
               Valued at over $29,000
             </div>
           </div>
-          <div class="point e">
+          <div
+            class="point e"
+            data-aos="fade-right"
+            data-aos-delay="800"
+          >
             <div class="content">
               Fully transportable and easily relocated
             </div>
@@ -347,20 +386,26 @@
             required
             placeholder="Insert link to your Gig on Fiverr"
           />
-        </div>        <div class="Field">
+        </div>        <div class="Field Field--file">
           <label class="Field-label" for="photo">
             Show us your #WFHWTF situation
           </label>
-          <input
-            class="Field-input"
-            id="photo"
-            name="photo"
-            type="file"
-            required
-            placeholder="Upload your photo"
-            accept="image/*"
-            data-max-size="5"
-          />
+          <label class="Field-proxy">
+            <span class="Field-proxy-label placeholder">Upload your photo</span>
+            <span class="Button">
+              Select file
+            </span>
+            <input
+              class="Field-input"
+              id="photo"
+              name="photo"
+              type="file"
+              required
+              placeholder="Upload your photo"
+              accept="image/*"
+              data-max-size="5"
+            />
+          </label>
         </div>
         <div class="Field">
           <label
@@ -451,7 +496,14 @@
   </main>
 
   <script>
+    AOS.init();
     var currentModal = null;
+
+    var forEach = function (array, callback) {
+      for (var i = 0; i < array.length; i++) {
+        callback(array[i], i);
+      }
+    };
 
     function openModal(element) {
       closeModal();
@@ -469,7 +521,7 @@
     }
 
     function queryEach(selector, cb) {
-      Array.from(document.querySelectorAll(selector)).forEach(cb);
+      forEach(document.querySelectorAll(selector), cb);
     }
 
     queryEach("[data-open-modal]", element => {
@@ -511,7 +563,7 @@
       }
       const maxSize = parseInt(maxSizeString);
       element.addEventListener("change", () => {
-        Array.from(element.files).forEach(file => {
+        forEach(element.files, file => {
           const sizeMb = file.size / 1024 / 1024;
           if (sizeMb > maxSize) {
             element.setCustomValidity("File is larger than maximum size of " + maxSize + "MB");
@@ -522,7 +574,44 @@
       })
     });
 
+    // File uploader
+    const fileInput = document.querySelector("input[type=file]");
+    const fileLabel = document.querySelector(".Field--file .Field-proxy-label");
+    const filePlaceholder = fileLabel.innerText;
+    fileInput.addEventListener("change", event => {
+      if (fileInput.files.length > 0) {
+        fileLabel.innerText = fileInput.files[0].name;
+        fileLabel.classList.remove("placeholder");
+      } else {
+        fileLabel.innerText = filePlaceholder;
+        fileLabel.classList.add("placeholder");
+      }
+    });
+
+    // Disable submit button...
+    const forms = forEach(document.getElementsByTagName("form"), form => {
+      form.addEventListener("submit", () => {
+        var buttons = form.querySelectorAll("button[type=submit]");
+        forEach(buttons, button => {
+          button.disabled = true;
+          button.innerText = "Submitting...";
+        });
+      })
+    });
+
+    // -- Slides --
+    const slidesContainer = document.getElementsByClassName("Slides")[0];
+    document.addEventListener("scroll", () => {
+      const bounds = slidesContainer.getBoundingClientRect();
+      const isActive =
+        bounds.top < 0.5 * window.innerHeight &&
+        bounds.bottom > window.innerHeight;
+      // document.body.style.border = isActive ? "2px solid magenta" : "none";
+      document.documentElement.style.scrollSnapType = isActive ? "y mandatory" : "none";
+    });
+
     // Init blips.
+    /*
     const slides = Array.from(document.getElementsByClassName("Slides-slide"));
     const blipContainer = document.getElementsByClassName("Slides-blips")[0];
     const blips = []
@@ -542,7 +631,7 @@
 
       const current = (element, index) => {
         element.style.position = "fixed";
-        element.style.opacity = 1;
+        element.style.display = "block";
         for (let i = 0; i < blips.length; i++) {
           if (i == index) {
             blips[i].classList.add("active");
@@ -553,11 +642,11 @@
       }
       const next = (element) => {
         element.style.position = "fixed";
-        element.style.opacity = 0;
+        element.style.display = "none"
       }
       const reset = (element) => {
         element.style.position = "absolute";
-        element.style.opacity = 1;
+        element.style.display = "block";
       }
 
       if (isActive) {
@@ -582,8 +671,8 @@
         }
       }
     });
+    */
 
-    AOS.init();
   </script>
 </body>
 </html>
