@@ -479,8 +479,10 @@
     const slidesContainer = document.getElementsByClassName("Slides")[0];
     document.addEventListener("scroll", () => {
       const bounds = slidesContainer.getBoundingClientRect();
-      const isActive = bounds.top < window.innerHeight && bounds.bottom > window.innerHeight;
-      document.body.style.border = isActive ? "2px solid magenta" : "none";
+      const isActive =
+        bounds.top < 0.5 * window.innerHeight &&
+        bounds.bottom > window.innerHeight;
+      // document.body.style.border = isActive ? "2px solid magenta" : "none";
       document.documentElement.style.scrollSnapType = isActive ? "y mandatory" : "none";
     });
 

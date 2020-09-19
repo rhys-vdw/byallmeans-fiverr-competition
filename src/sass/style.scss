@@ -710,11 +710,11 @@ $feature-max-width: 980px;
 
   &-slide {
     position: relative;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
 
     &, &-content {
       min-height: 100vh;
-      max-height: 100vh;
+      max-height: 900vh;
     }
 
     &-content {
