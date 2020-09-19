@@ -131,50 +131,85 @@
           <!-- added procedurally -->
         </div>
         {{#> slide}}
-          <div class="cornerText bottom right">
+          <div
+            class="cornerText bottom right"
+            data-aos="zoom-in-left"
+            data-aos-anchor-position="bottom-center"
+          >
             Purpose-designed home office pod by award winning Melbourne-based prefabricated building company, Harwyn.
           </div>
         {{/slide}}
         {{#> slide}}
-          <div class="cornerText top left">
+          <div
+            class="cornerText top left"
+            data-aos="zoom-in-right"
+            data-aos-anchor-position="bottom-center"
+          >
             Size: 2.2m &times; 2.2m (total external dimensions)<br>
             Fully designed, engineered, certified, and built in Australia.
           </div>
         {{/slide}}
         {{#> slide}}
-          <div class="cornerText bottom left">
+          <div
+            class="cornerText bottom left"
+            data-aos="zoom-in-up"
+            data-aos-anchor-position="bottom-center"
+          >
             100% Australian materials.<br>
             Permanent structure that has the ability to be easily relocated.
           </div>
         {{/slide}}
         {{#> slide}}
-          <div class="cornerText top right">
+          <div
+            class="cornerText top right"
+            data-aos="zoom-in-down"
+            data-aos-anchor-position="bottom-center"
+          >
             High levels of thermal and acoustic insulation.<br>
             Commercial fixed and awning window sets.
           </div>
         {{/slide}}
         {{#> slide}}
-          <div class="point a">
+          <div
+            class="point a"
+            data-aos="fade-right"
+          >
             <div class="content">
               Architectural LED lighting system
             </div>
           </div>
-          <div class="point b">
+          <div
+            class="point b"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
             <div class="content">
               Climate control system
             </div>
           </div>
-          <div class="point c">
+          <div
+            class="point c"
+            data-aos="fade-right"
+            data-aos-delay="400"
+          >
             <div class="content">
               Delivery and installation
             </div>
           </div>
-          <div class="point d">
+          <div
+            class="point d"
+            data-aos="fade-right"
+            data-aos-delay="600"
+          >
             <div class="content">
               Valued at over $29,000
             </div>
           </div>
-          <div class="point e">
+          <div
+            class="point e"
+            data-aos="fade-right"
+            data-aos-delay="800"
+          >
             <div class="content">
               Fully transportable and easily relocated
             </div>
@@ -406,7 +441,7 @@
     const slidesContainer = document.getElementsByClassName("Slides")[0];
     document.addEventListener("scroll", () => {
       const bounds = slidesContainer.getBoundingClientRect();
-      const isActive = bounds.top < window.innerHeight / 2 && bounds.bottom > window.innerHeight;
+      const isActive = bounds.top < window.innerHeight && bounds.bottom > window.innerHeight;
       document.body.style.border = isActive ? "2px solid magenta" : "none";
       document.documentElement.style.scrollSnapType = isActive ? "y mandatory" : "none";
     });
@@ -432,7 +467,7 @@
 
       const current = (element, index) => {
         element.style.position = "fixed";
-        element.style.opacity = 1;
+        element.style.display = "block";
         for (let i = 0; i < blips.length; i++) {
           if (i == index) {
             blips[i].classList.add("active");
@@ -443,11 +478,11 @@
       }
       const next = (element) => {
         element.style.position = "fixed";
-        element.style.opacity = 0;
+        element.style.display = "none"
       }
       const reset = (element) => {
         element.style.position = "absolute";
-        element.style.opacity = 1;
+        element.style.display = "block";
       }
 
       if (isActive) {
