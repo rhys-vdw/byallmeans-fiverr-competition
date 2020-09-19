@@ -369,6 +369,12 @@
     AOS.init();
     var currentModal = null;
 
+    var forEach = function (array, callback) {
+      for (var i = 0; i < array.length; i++) {
+        callback(array[i], i);
+      }
+    };
+
     function openModal(element) {
       closeModal();
       element.style.display = "block";
@@ -385,7 +391,7 @@
     }
 
     function queryEach(selector, cb) {
-      Array.from(document.querySelectorAll(selector)).forEach(cb);
+      forEach(document.querySelectorAll(selector), cb);
     }
 
     queryEach("[data-open-modal]", element => {
@@ -427,7 +433,7 @@
       }
       const maxSize = parseInt(maxSizeString);
       element.addEventListener("change", () => {
-        Array.from(element.files).forEach(file => {
+        forEach(element.files, file => {
           const sizeMb = file.size / 1024 / 1024;
           if (sizeMb > maxSize) {
             element.setCustomValidity("File is larger than maximum size of " + maxSize + "MB");
