@@ -811,10 +811,10 @@ $feature-max-width: 980px;
     max-width: 400px;
 
     position: absolute;
-    &.top { top: 0; }
-    &.right { right: 0; }
-    &.bottom { bottom: 0; }
-    &.left { left: 0; }
+    &.top { top: -2px; }
+    &.right { right: -2px; }
+    &.bottom { bottom: -2px; }
+    &.left { left: -2px; }
   }
 
   .point {
