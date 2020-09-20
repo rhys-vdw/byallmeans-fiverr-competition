@@ -402,7 +402,7 @@
 
     queryEach("[data-open-modal]", element => {
       element.addEventListener("click", () => {
-        const id = element.dataset["openModal"];
+        var id = element.dataset["openModal"];
         openModal(document.getElementById(id));
       });
     });
@@ -413,7 +413,7 @@
 
     queryEach("[data-scroll-to]", element => {
       element.addEventListener("click", () => {
-        const id = element.dataset["scrollTo"];
+        var id = element.dataset["scrollTo"];
         document.getElementById(id).scrollIntoView({
           behavior: "smooth",
           block: "start"
@@ -422,9 +422,9 @@
     });
 
     queryEach("[data-length-count-for]", element => {
-      const inputId = element.dataset["lengthCountFor"];
-      const textArea = document.getElementById(inputId);
-      const update = () => {
+      var inputId = element.dataset["lengthCountFor"];
+      var textArea = document.getElementById(inputId);
+      var update = () => {
         element.innerText = textArea.value.length + " / " + textArea.maxLength;
       };
       textArea.addEventListener("change", update);
@@ -433,14 +433,14 @@
     });
 
     queryEach("input[type='file'][data-max-size]", element => {
-      const maxSizeString = element.dataset["maxSize"];
+      var maxSizeString = element.dataset["maxSize"];
       if (maxSizeString == null) {
         return;
       }
-      const maxSize = parseInt(maxSizeString);
+      var maxSize = parseInt(maxSizeString);
       element.addEventListener("change", () => {
         forEach(element.files, file => {
-          const sizeMb = file.size / 1024 / 1024;
+          var sizeMb = file.size / 1024 / 1024;
           if (sizeMb > maxSize) {
             element.setCustomValidity("File is larger than maximum size of " + maxSize + "MB");
           } else {
@@ -451,9 +451,9 @@
     });
 
     // File uploader
-    const fileInput = document.querySelector("input[type=file]");
-    const fileLabel = document.querySelector(".Field--file .Field-proxy-label");
-    const filePlaceholder = fileLabel.innerText;
+    var fileInput = document.querySelector("input[type=file]");
+    var fileLabel = document.querySelector(".Field--file .Field-proxy-label");
+    var filePlaceholder = fileLabel.innerText;
     fileInput.addEventListener("change", event => {
       if (fileInput.files.length > 0) {
         fileLabel.innerText = fileInput.files[0].name;
@@ -465,7 +465,7 @@
     });
 
     // Disable submit button...
-    const forms = forEach(document.getElementsByTagName("form"), form => {
+    var forms = forEach(document.getElementsByTagName("form"), form => {
       form.addEventListener("submit", () => {
         var buttons = form.querySelectorAll("button[type=submit]");
         forEach(buttons, button => {
