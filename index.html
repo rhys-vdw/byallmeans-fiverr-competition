@@ -299,30 +299,44 @@
       <div class="Section-content">
         <h1>How to <strong>enter.</strong></h1>
         <div class="Steps">
-          <div><div><div>
-            <div class="Steps-number">
-              1
-            </div>
-            <div class="Steps-text">
-              Sign up for free to become a Fiverr seller.
-            </div>
-          </div></div></div>
-          <div><div><div>
-            <div class="Steps-number">
-              2
-            </div>
-            <div class="Steps-text">
-              Get busy and set up your Gig.
-            </div>
-          </div></div></div>
-          <div><div><div>
-            <div class="Steps-number">
-              3
-            </div>
-            <div class="Steps-text">
-              Tell us why you need to escape to your own Escape Pod.
-            </div>
-          </div></div></div>
+          <div
+            data-aos="flip-down"
+          />
+            <div><div>
+              <div class="Steps-number">
+                1
+              </div>
+              <div class="Steps-text">
+                Sign up for free to become a Fiverr seller.
+              </div>
+            </div></div>
+          </div>
+          <div
+            data-aos="flip-down"
+            data-aos-delay="200"
+          >
+            <div><div>
+              <div class="Steps-number">
+                2
+              </div>
+              <div class="Steps-text">
+                Get busy and set up your Gig.
+              </div>
+            </div></div>
+          </div>
+          <div
+            data-aos="flip-down"
+            data-aos-delay="400"
+          >
+            <div><div>
+              <div class="Steps-number">
+                3
+              </div>
+              <div class="Steps-text">
+                Tell us why you need to escape to your own Escape Pod.
+              </div>
+            </div></div>
+          </div>
         </div>
       </div>
     </section>
@@ -526,7 +540,7 @@
 
     queryEach("[data-open-modal]", element => {
       element.addEventListener("click", () => {
-        const id = element.dataset["openModal"];
+        var id = element.dataset["openModal"];
         openModal(document.getElementById(id));
       });
     });
@@ -537,7 +551,7 @@
 
     queryEach("[data-scroll-to]", element => {
       element.addEventListener("click", () => {
-        const id = element.dataset["scrollTo"];
+        var id = element.dataset["scrollTo"];
         document.getElementById(id).scrollIntoView({
           behavior: "smooth",
           block: "start"
@@ -546,9 +560,9 @@
     });
 
     queryEach("[data-length-count-for]", element => {
-      const inputId = element.dataset["lengthCountFor"];
-      const textArea = document.getElementById(inputId);
-      const update = () => {
+      var inputId = element.dataset["lengthCountFor"];
+      var textArea = document.getElementById(inputId);
+      var update = () => {
         element.innerText = textArea.value.length + " / " + textArea.maxLength;
       };
       textArea.addEventListener("change", update);
@@ -557,14 +571,14 @@
     });
 
     queryEach("input[type='file'][data-max-size]", element => {
-      const maxSizeString = element.dataset["maxSize"];
+      var maxSizeString = element.dataset["maxSize"];
       if (maxSizeString == null) {
         return;
       }
-      const maxSize = parseInt(maxSizeString);
+      var maxSize = parseInt(maxSizeString);
       element.addEventListener("change", () => {
         forEach(element.files, file => {
-          const sizeMb = file.size / 1024 / 1024;
+          var sizeMb = file.size / 1024 / 1024;
           if (sizeMb > maxSize) {
             element.setCustomValidity("File is larger than maximum size of " + maxSize + "MB");
           } else {
@@ -575,9 +589,9 @@
     });
 
     // File uploader
-    const fileInput = document.querySelector("input[type=file]");
-    const fileLabel = document.querySelector(".Field--file .Field-proxy-label");
-    const filePlaceholder = fileLabel.innerText;
+    var fileInput = document.querySelector("input[type=file]");
+    var fileLabel = document.querySelector(".Field--file .Field-proxy-label");
+    var filePlaceholder = fileLabel.innerText;
     fileInput.addEventListener("change", event => {
       if (fileInput.files.length > 0) {
         fileLabel.innerText = fileInput.files[0].name;
@@ -589,7 +603,7 @@
     });
 
     // Disable submit button...
-    const forms = forEach(document.getElementsByTagName("form"), form => {
+    var forms = forEach(document.getElementsByTagName("form"), form => {
       form.addEventListener("submit", () => {
         var buttons = form.querySelectorAll("button[type=submit]");
         forEach(buttons, button => {
@@ -598,81 +612,6 @@
         });
       })
     });
-
-    // -- Slides --
-    const slidesContainer = document.getElementsByClassName("Slides")[0];
-    document.addEventListener("scroll", () => {
-      const bounds = slidesContainer.getBoundingClientRect();
-      const isActive =
-        bounds.top < 0.5 * window.innerHeight &&
-        bounds.bottom > window.innerHeight;
-      // document.body.style.border = isActive ? "2px solid magenta" : "none";
-      document.documentElement.style.scrollSnapType = isActive ? "y mandatory" : "none";
-    });
-
-    // Init blips.
-    /*
-    const slides = Array.from(document.getElementsByClassName("Slides-slide"));
-    const blipContainer = document.getElementsByClassName("Slides-blips")[0];
-    const blips = []
-    for (let i = 0; i < slides.length; i++) {
-      const blip = document.createElement("div");
-      blip.classList.add("Slides-blip");
-      blipContainer.appendChild(blip);
-      blips.push(blip);
-    }
-
-    // Handle scroll.
-    const slidesContainer = document.getElementsByClassName("Slides")[0];
-    document.addEventListener("scroll", () => {
-      const bounds = slidesContainer.getBoundingClientRect();
-      const isActive = bounds.top < 0 && bounds.bottom > window.innerHeight;
-      blipContainer.style.opacity = isActive ? 1 : 0;
-
-      const current = (element, index) => {
-        element.style.position = "fixed";
-        element.style.display = "block";
-        for (let i = 0; i < blips.length; i++) {
-          if (i == index) {
-            blips[i].classList.add("active");
-          } else {
-            blips[i].classList.remove("active");
-          }
-        }
-      }
-      const next = (element) => {
-        element.style.position = "fixed";
-        element.style.display = "none"
-      }
-      const reset = (element) => {
-        element.style.position = "absolute";
-        element.style.display = "block";
-      }
-
-      if (isActive) {
-        for (let i = 0; i < slides.length; i++) {
-          const slide = slides[i];
-          const rect = slide.getBoundingClientRect();
-          const content = slide.querySelector(".Slides-slide-content");
-          if (rect.bottom < 0) {
-            reset(content);
-          } else if (rect.top < 0 && rect.bottom < window.innerHeight) {
-            current(content, i);
-          } else if (rect.top < window.innerHeight) {
-            next(content);
-          } else {
-            reset(content);
-          }
-        }
-      } else {
-        for (const slide of slides) {
-          const content = slide.querySelector(".Slides-slide-content");
-          reset(content);
-        }
-      }
-    });
-    */
-
   </script>
 </body>
 </html>

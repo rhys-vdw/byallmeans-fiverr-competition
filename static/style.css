@@ -1081,8 +1081,7 @@ small {
   position: relative;
   margin: auto; }
   .Slides-slide {
-    position: relative;
-    scroll-snap-align: center; }
+    position: relative; }
     .Slides-slide, .Slides-slide-content {
       min-height: 100vh;
       max-height: 900vh; }
@@ -1161,13 +1160,13 @@ small {
     max-width: 400px;
     position: absolute; }
     .Feature .cornerText.top {
-      top: 0; }
+      top: -2px; }
     .Feature .cornerText.right {
-      right: 0; }
+      right: -2px; }
     .Feature .cornerText.bottom {
-      bottom: 0; }
+      bottom: -2px; }
     .Feature .cornerText.left {
-      left: 0; }
+      left: -2px; }
   .Feature .point {
     white-space: nowrap; }
     .Feature .point.a {
