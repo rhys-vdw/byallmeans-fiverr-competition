@@ -1176,6 +1176,15 @@ small {
       bottom: -2px; }
     .Feature .cornerText.left {
       left: -2px; }
+    @media (max-width: 860px) {
+      .Feature .cornerText.top {
+        left: -2px;
+        right: -2px;
+        max-width: unset; }
+      .Feature .cornerText.bottom {
+        left: -2px;
+        right: -2px;
+        max-width: unset; } }
   .Feature .point {
     white-space: nowrap; }
     .Feature .point.a {
