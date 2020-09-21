@@ -820,6 +820,15 @@ $feature-max-width: 980px;
     &.right { right: -2px; }
     &.bottom { bottom: -2px; }
     &.left { left: -2px; }
+
+    @include mobile-content() {
+      &.top {
+        left: -2px; right: -2px; max-width: unset;
+      }
+      &.bottom {
+        left: -2px; right: -2px; max-width: unset;
+      }
+    }
   }
 
   .point {
