@@ -760,7 +760,12 @@ $feature-max-width: 980px;
 }
 
 .Feature {
-  background-image: url("images/backyard-photo.jpg");
+  &--1 { background-image: url("images/pod_backyard_1.jpg"); }
+  &--2 { background-image: url("images/pod_backyard_2.jpg"); }
+  &--3 { background-image: url("images/pod_backyard_3.jpg"); }
+  &--4 { background-image: url("images/pod_backyard_4.jpg"); }
+  &--5 { background-image: url("images/pod_backyard_1.jpg"); }
+
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
