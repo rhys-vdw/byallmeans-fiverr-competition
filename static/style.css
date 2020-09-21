@@ -1119,7 +1119,6 @@ small {
       background-color: #003912; }
 
 .Feature {
-  background-image: url("images/backyard-photo.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1129,6 +1128,16 @@ small {
   height: 700px;
   padding: 50px;
   position: relative; }
+  .Feature--1 {
+    background-image: url("images/pod_backyard_1.jpg"); }
+  .Feature--2 {
+    background-image: url("images/pod_backyard_2.jpg"); }
+  .Feature--3 {
+    background-image: url("images/pod_backyard_3.jpg"); }
+  .Feature--4 {
+    background-image: url("images/pod_backyard_4.jpg"); }
+  .Feature--5 {
+    background-image: url("images/pod_backyard_1.jpg"); }
   .Feature-frame {
     position: absolute;
     left: 50px;
