@@ -1079,12 +1079,11 @@ small {
 .Slides {
   max-width: 980px;
   position: relative;
-  margin: auto; }
+  margin: auto;
+  min-height: 100vh; }
   .Slides-slide {
+    min-height: calc(100vh - 60px);
     position: relative; }
-    .Slides-slide, .Slides-slide-content {
-      min-height: 100vh;
-      max-height: 900vh; }
     .Slides-slide-content {
       display: flex;
       flex-direction: column;
@@ -1096,25 +1095,20 @@ small {
       right: 0;
       bottom: 0; }
   .Slides-blips {
-    position: fixed;
-    opacity: 0;
-    height: 100vh;
-    left: 50%;
-    top: 0;
-    padding-left: 530px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    transition: opacity 200ms; }
+    transition: opacity 200ms;
+    height: 60px; }
   .Slides-blip {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color: #00732E;
-    transition: background-color 200ms; }
-    .Slides-blip:not(:first-child) {
-      margin-top: 20px; }
+    transition: background-color 200ms;
+    cursor: pointer;
+    margin: 10px; }
     .Slides-blip.active {
       background-color: #003912; }
 
@@ -1125,8 +1119,7 @@ small {
   width: 100%;
   max-width: 980px;
   margin: auto;
-  height: 700px;
-  padding: 50px;
+  height: 100%;
   position: relative; }
   .Feature--1 {
     background-image: url("images/pod_backyard_1.jpg"); }
@@ -1270,3 +1263,9 @@ small {
       font-family: Macan;
       font-style: normal;
       font-weight: bold; }
+
+.hide {
+  opacity: 1;
+  transition: opacity 200ms; }
+  .hide.loading {
+    opacity: 0; }
