@@ -931,3 +931,11 @@ $feature-max-width: 980px;
     margin-bottom: 46px;
   }
 }
+
+.hide {
+  opacity: 1;
+  transition: opacity 200ms;
+  &.loading {
+    opacity: 0;
+  }
+}

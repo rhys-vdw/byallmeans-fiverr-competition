@@ -7,7 +7,7 @@
     </header>
 
     <section class="Section Section--winAPod">
-      <header class="Hero">
+      <header class="Hero hide loading">
         <video class="Hero-video" autoplay muted loop playsinline>
           <source src="static/videos/header.mp4" type="video/mp4">
         </video>
@@ -465,6 +465,14 @@
           button.innerText = "Submitting...";
         });
       })
+    });
+
+    // Hide header until loaded.
+    document.addEventListener("load", () => {
+      var hidden = document.getElementsByClassName("hide");
+      forEach(hidden, element => {
+        element.classList.remove("loading");
+      });
     });
   </script>
 {{/main}}
