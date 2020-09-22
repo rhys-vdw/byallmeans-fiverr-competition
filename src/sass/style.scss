@@ -702,19 +702,18 @@ small {
 }
 
 $feature-max-width: 980px;
+$blips-height: 60px;
 
 .Slides {
   max-width: $feature-max-width;
   position: relative;
   margin: auto;
 
-  &-slide {
-    position: relative;
+  min-height: 100vh;
 
-    &, &-content {
-      min-height: 100vh;
-      max-height: 900vh;
-    }
+  &-slide {
+    min-height: calc(100vh - #{$blips-height});
+    position: relative;
 
     &-content {
       display: flex;
@@ -731,17 +730,13 @@ $feature-max-width: 980px;
   }
 
   &-blips {
-    position: fixed;
-    opacity: 0;
-    height: 100vh;
-    left: 50%;
-    top: 0;
-    padding-left: $feature-max-width / 2 + 40px;
+    // padding-left: $feature-max-width / 2 + 40px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     transition: opacity 200ms;
+    height: $blips-height;
   }
 
   &-blip {
@@ -750,9 +745,8 @@ $feature-max-width: 980px;
     border-radius: 50%;
     background-color: $color-green-medium;
     transition: background-color 200ms;
-    &:not(:first-child) {
-      margin-top: 20px;
-    }
+    cursor: pointer;
+    margin: 10px;
     &.active {
       background-color: $color-green-dark;
     }
@@ -773,10 +767,8 @@ $feature-max-width: 980px;
   width: 100%;
   max-width: $feature-max-width;
   margin: auto;
-  // TODO: Proper sizing.
-  height: 700px;
+  height: 100%;
 
-  padding: 50px;
   position: relative;
 
   &-frame {

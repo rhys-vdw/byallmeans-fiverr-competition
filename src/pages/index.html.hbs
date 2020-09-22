@@ -127,89 +127,91 @@
         <h1><strong>Escape Pod</strong> features.</h1>
       </div>
       <div class="Slides">
-        <div class="Slides-blips">
-          <!-- added procedurally -->
-        </div>
-        {{#> slide id=1}}
-          <div
-            class="cornerText bottom right"
-            data-aos="zoom-in-left"
-          >
-            Purpose-designed home office pod by award winning Melbourne-based prefabricated building company, Harwyn.
-          </div>
-        {{/slide}}
-        {{#> slide id=2}}
-          <div
-            class="cornerText top left"
-            data-aos="zoom-in-right"
-          >
-            Size: 2.2m &times; 2.2m (total external dimensions)<br>
-            Fully designed, engineered, certified, and built in Australia.
-          </div>
-        {{/slide}}
-        {{#> slide id=3}}
-          <div
-            class="cornerText bottom left"
-            data-aos="zoom-in-up"
-          >
-            100% Australian materials.<br>
-            Permanent structure that has the ability to be easily relocated.
-          </div>
-        {{/slide}}
-        {{#> slide id=4}}
-          <div
-            class="cornerText top right"
-            data-aos="zoom-in-down"
-          >
-            High levels of thermal and acoustic insulation.<br>
-            Commercial fixed and awning window sets.
-          </div>
-        {{/slide}}
-        {{#> slide id=5}}
-          <div
-            class="point a"
-            data-aos="fade-right"
-          >
-            <div class="content">
-              Architectural LED lighting system
-            </div>
-          </div>
-          <div
-            class="point b"
-            data-aos="fade-right"
-            data-aos-delay="200"
-          >
-            <div class="content">
-              Climate control system
-            </div>
-          </div>
-          <div
-            class="point c"
-            data-aos="fade-right"
-            data-aos-delay="400"
-          >
-            <div class="content">
-              Delivery and installation
-            </div>
-          </div>
-          <div
-            class="point d"
-            data-aos="fade-right"
-            data-aos-delay="600"
-          >
-            <div class="content">
-              Valued at over $25,000
-            </div>
-          </div>
-          <div
-            class="point e"
-            data-aos="fade-right"
-            data-aos-delay="800"
-          >
-            <div class="content">
-              Fully transportable and easily relocated
+        <div class="Slides-slider">
+          {{#> slide id=1}}
+            <div
+              class="cornerText bottom right"
+              data-aos="zoom-in-left"
+            >
+              Purpose-designed home office pod by award winning Melbourne-based prefabricated building company, Harwyn.
             </div>
           {{/slide}}
+          {{#> slide id=2}}
+            <div
+              class="cornerText top left"
+              data-aos="zoom-in-right"
+            >
+              Size: 2.2m &times; 2.2m (total external dimensions)<br>
+              Fully designed, engineered, certified, and built in Australia.
+            </div>
+          {{/slide}}
+          {{#> slide id=3}}
+            <div
+              class="cornerText bottom left"
+              data-aos="zoom-in-up"
+            >
+              100% Australian materials.<br>
+              Permanent structure that has the ability to be easily relocated.
+            </div>
+          {{/slide}}
+          {{#> slide id=4}}
+            <div
+              class="cornerText top right"
+              data-aos="zoom-in-down"
+            >
+              High levels of thermal and acoustic insulation.<br>
+              Commercial fixed and awning window sets.
+            </div>
+          {{/slide}}
+          {{#> slide id=5}}
+            <div
+              class="point a"
+              data-aos="fade-right"
+            >
+              <div class="content">
+                Architectural LED lighting system
+              </div>
+            </div>
+            <div
+              class="point b"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
+              <div class="content">
+                Climate control system
+              </div>
+            </div>
+            <div
+              class="point c"
+              data-aos="fade-right"
+              data-aos-delay="400"
+            >
+              <div class="content">
+                Delivery and installation
+              </div>
+            </div>
+            <div
+              class="point d"
+              data-aos="fade-right"
+              data-aos-delay="600"
+            >
+              <div class="content">
+                Valued at over $25,000
+              </div>
+            </div>
+            <div
+              class="point e"
+              data-aos="fade-right"
+              data-aos-delay="800"
+            >
+              <div class="content">
+                Fully transportable and easily relocated
+              </div>
+            {{/slide}}
+          </div>
+          <div class="Slides-blips">
+            <!-- added procedurally -->
+          </div>
         </div>
       </div>
     </section>
@@ -481,9 +483,42 @@
     window.onload = reveal();
     setTimeout(reveal, 400);
 
-    new Siema({
-      selector: ".Slides",
-      loop: true
-    })
+    var slider = new Siema({
+      selector: ".Slides-slider",
+      loop: true,
+      onChange: updateBlip
+    });
+
+    function updateBlip() {
+      var index = slider.currentSlide;
+      for (var i = 0; i < blips.length; i++) {
+        if (i == index) {
+          blips[i].classList.add("active");
+        } else {
+          blips[i].classList.remove("active");
+        }
+      }
+    }
+
+    function handleBlipClick(event) {
+      var index = event.currentTarget.dataset["index"];
+      console.log("index", index);
+      slider.goTo(index);
+    }
+
+    const slides = Array.from(document.getElementsByClassName("Slides-slide"));
+    const blipContainer = document.getElementsByClassName("Slides-blips")[0];
+    const blips = []
+    for (var i = 0; i < slider.innerElements.length; i++) {
+      var index = i;
+      const blip = document.createElement("div");
+      blip.classList.add("Slides-blip");
+      blip.addEventListener("click", handleBlipClick);
+      blip.dataset["index"] = i;
+      blipContainer.appendChild(blip);
+      blips.push(blip);
+    }
+
+    updateBlip();
   </script>
 {{/main}}
