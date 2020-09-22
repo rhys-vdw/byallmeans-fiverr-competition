@@ -467,12 +467,23 @@
       })
     });
 
-    // Hide header until loaded.
-    document.addEventListener("load", () => {
-      var hidden = document.getElementsByClassName("hide");
-      forEach(hidden, element => {
-        element.classList.remove("loading");
-      });
-    });
+    // Hide header until loaded (or 400ms have passed).
+    var isRevealed = false;
+    function reveal() {
+      if (!isRevealed) {
+        isRevealed = true;
+        var hidden = document.getElementsByClassName("hide");
+        forEach(hidden, element => {
+          element.classList.remove("loading");
+        });
+      }
+    }
+    window.onload = reveal();
+    setTimeout(reveal, 400);
+
+    new Siema({
+      selector: ".Slides",
+      loop: true
+    })
   </script>
 {{/main}}
