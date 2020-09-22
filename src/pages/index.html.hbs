@@ -486,7 +486,11 @@
     var slider = new Siema({
       selector: ".Slides-slider",
       loop: true,
-      onChange: updateBlip
+      duration: 400,
+      onChange: () => {
+        updateBlip();
+        setSliderTimeout();
+      }
     });
 
     function updateBlip() {
@@ -499,6 +503,16 @@
         }
       }
     }
+
+    var sliderTimeoutId = -1;
+    function setSliderTimeout() {
+      var timeout = slider.currentSlide === 4 ? 8000 : 5000;
+      clearTimeout(sliderTimeoutId);
+      sliderTimeoutId = setTimeout(() => {
+        slider.next();
+      }, timeout);
+    }
+    setSliderTimeout();
 
     function handleBlipClick(event) {
       var index = event.currentTarget.dataset["index"];
@@ -518,7 +532,6 @@
       blipContainer.appendChild(blip);
       blips.push(blip);
     }
-
     updateBlip();
   </script>
 {{/main}}
