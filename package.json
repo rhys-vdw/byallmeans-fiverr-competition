@@ -41,7 +41,8 @@
   "scripts": {
     "build": "ts-node build.ts",
     "view": "npm run build && cd build && http-server",
-    "deploy": "yarn run build && gh-pages -d build",
+    "deploy-production": "yarn run build && gh-pages -o origin -d build",
+    "deploy-staging": "yarn run build && gh-pages -o staging -d build",
     "watch": "npm-watch"
   }
 }
