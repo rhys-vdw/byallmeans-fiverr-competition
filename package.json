@@ -32,7 +32,7 @@
     "current": "^0.1.6"
   },
   "watch": {
-    "build": {
+    "build:development": {
       "patterns": [
         "src"
       ],
