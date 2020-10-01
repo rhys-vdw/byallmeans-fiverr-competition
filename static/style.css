@@ -521,9 +521,12 @@ body {
       font-size: 16px;
       line-height: 160%; } }
 
-a {
+.Anchor, a {
+  color: inherit;
+  text-decoration: underline;
   font-weight: bold;
-  color: inherit; }
+  font-family: Macan;
+  font-style: normal; }
 
 h1 {
   margin: 0; }
@@ -698,86 +701,62 @@ small {
     .Section--winAPod {
       padding-bottom: 98px; } }
 
-.Section--winAPod .Section-feature {
+.Section-feature {
+  display: block;
   text-align: center;
   padding: 47px 68px 54px 68px;
-  border: 6px solid #00C16B;
+  border: 6px solid black;
   border-radius: 6px;
   font-family: "Domaine Display";
   font-style: italic;
   font-weight: 500;
   font-size: 32px;
-  line-height: 120%; }
+  line-height: 120%;
+  text-decoration: none; }
   @media (max-width: 860px) {
-    .Section--winAPod .Section-feature {
+    .Section-feature {
       font-size: 24px;
       padding: 27px 24px; } }
-  .Section--winAPod .Section-feature strong {
-    color: #00C16B;
+  .Section-feature strong, .Section-feature a, .Section-feature .Anchor {
     font-family: Macan;
     font-weight: bold;
     font-style: normal;
     padding: 0 0.1em; }
 
-@media (min-width: 860px) {
-  .Section--becomeASeller1 .Section-content, .Section--becomeASeller2 .Section-content {
-    max-width: 800px; } }
+.Section--winAPod .Section-feature {
+  border-color: #00C16B; }
+  .Section--winAPod .Section-feature strong {
+    color: #00C16B; }
 
-.Section--becomeASeller1 {
-  color: #003912; }
-  .Section--becomeASeller1 h1 {
-    color: #003912;
-    font-size: 60px;
+.Section--form .Section-feature {
+  border-color: #BE5272; }
+  .Section--form .Section-feature strong, .Section--form .Section-feature a, .Section--form .Section-feature .Anchor {
+    color: #BE5272; }
+
+.Section--thePrize {
+  background-color: #00C16B;
+  color: #003912;
+  padding-bottom: 150px;
+  padding-top: 150px; }
+  @media (max-width: 860px) {
+    .Section--thePrize {
+      text-align: center; } }
+  .Section--thePrize h1 {
+    color: white;
+    font-size: 70px;
     font-family: "Domaine Display";
     font-style: italic;
     font-weight: 500;
     line-height: 130%;
-    text-align: center;
-    margin-left: -25px;
-    margin-right: -25px;
-    margin-bottom: 50px; }
+    margin-bottom: 10px; }
     @media (max-width: 860px) {
-      .Section--becomeASeller1 h1 {
+      .Section--thePrize h1 {
         font-size: 30px; } }
-    .Section--becomeASeller1 h1 strong {
-      color: #00C16B;
+    .Section--thePrize h1 strong {
+      color: #003912;
       font-family: Macan;
       font-style: normal;
       font-weight: bold; }
-    @media (max-width: 860px) {
-      .Section--becomeASeller1 h1 {
-        padding: 0 25px; } }
-
-.Section--becomeASeller2, .Section--thePrize {
-  background-color: #00C16B;
-  color: #003912;
-  padding-bottom: 150px; }
-  .Section--becomeASeller2 .Section-centeredText, .Section--thePrize .Section-centeredText {
-    margin-top: 50px; }
-    @media (max-width: 860px) {
-      .Section--becomeASeller2 .Section-centeredText, .Section--thePrize .Section-centeredText {
-        margin-bottom: 30px; } }
-
-@media (max-width: 860px) {
-  .Section--thePrize {
-    text-align: center; } }
-
-.Section--thePrize h1 {
-  color: white;
-  font-size: 70px;
-  font-family: "Domaine Display";
-  font-style: italic;
-  font-weight: 500;
-  line-height: 130%;
-  margin-bottom: 10px; }
-  @media (max-width: 860px) {
-    .Section--thePrize h1 {
-      font-size: 30px; } }
-  .Section--thePrize h1 strong {
-    color: #003912;
-    font-family: Macan;
-    font-style: normal;
-    font-weight: bold; }
 
 .Section--thePrize .Section-content {
   display: flex;
@@ -844,40 +823,18 @@ small {
       font-style: normal;
       font-weight: bold; }
 
-.Section--howToEnter {
-  background: #00C16B;
-  color: #003912;
-  padding-bottom: 83px; }
-  .Section--howToEnter .Section-content {
-    max-width: 830px; }
-  .Section--howToEnter h1 {
-    color: #003912;
-    font-size: 60px;
-    font-family: "Domaine Display";
-    font-style: italic;
-    font-weight: 500;
-    line-height: 130%;
-    text-align: center;
-    margin-bottom: 67px; }
-    @media (max-width: 860px) {
-      .Section--howToEnter h1 {
-        font-size: 30px; } }
-    .Section--howToEnter h1 strong {
-      color: white;
-      font-family: Macan;
-      font-style: normal;
-      font-weight: bold; }
-
 .Section--form {
   padding-top: 120px;
   padding-bottom: 233px;
   color: #4D1727;
   background: #FFD3E2; }
-  .Section--form .Section-content {
+  .Section--form .Section-form {
     width: 580px;
     max-width: 100%; }
   .Section--form .Section-submitRow {
     padding-top: 100px; }
+  .Section--form .Section-content {
+    margin-bottom: 60px; }
   .Section--form h1 {
     color: #BE5272;
     font-size: 60px;
@@ -885,7 +842,7 @@ small {
     font-style: italic;
     font-weight: 500;
     line-height: 130%;
-    margin-bottom: 130px;
+    margin-bottom: 60px;
     text-align: center; }
     @media (max-width: 860px) {
       .Section--form h1 {
@@ -898,62 +855,6 @@ small {
     @media (max-width: 860px) {
       .Section--form h1 {
         margin-bottom: 50px; } }
-
-.Steps {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto; }
-  @media (max-width: 860px) {
-    .Steps {
-      flex-direction: column;
-      max-width: 270px; }
-      .Steps > div {
-        width: 100%; } }
-  .Steps > div {
-    flex-grow: 1;
-    flex-shrink: 1; }
-    .Steps > div:not(:first-child) {
-      padding-left: 40px; }
-      @media (max-width: 860px) {
-        .Steps > div:not(:first-child) {
-          padding-left: 0;
-          padding-top: 30px; } }
-    .Steps > div > div {
-      white-space: normal;
-      background: white;
-      overflow: hidden;
-      border-radius: 50%;
-      height: 0;
-      padding-top: 100%;
-      position: relative; }
-      .Steps > div > div > div {
-        position: absolute;
-        left: 15%;
-        right: 15%;
-        top: 15%;
-        bottom: 15%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; }
-  .Steps-number, .Steps-text {
-    height: 50%; }
-  .Steps-number {
-    font-family: "Domaine Display";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 60px;
-    line-height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column; }
-  .Steps-text {
-    text-align: center;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 120%; }
 
 .Field-input, .Field--file .Field-proxy {
   display: block;
@@ -1029,52 +930,6 @@ small {
   .Checkbox-input:focus + .Checkbox-checkbox, .Checkbox-checkbox:focus {
     border: 2px solid #FF80AE;
     outline: none; }
-
-.Benefits {
-  display: flex; }
-  @media (max-width: 860px) {
-    .Benefits {
-      flex-direction: column;
-      align-items: stretch;
-      margin: auto; }
-      .Benefits .Benefits-cell {
-        width: 100%; } }
-  .Benefits-cell {
-    width: 50%;
-    text-align: center;
-    font-family: "Domaine Display";
-    font-style: italic;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 120%; }
-    .Benefits-cell > div {
-      padding-top: 100%;
-      position: relative; }
-      .Benefits-cell > div > div {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-    .Benefits-cell strong {
-      font-family: Macan;
-      font-weight: bold;
-      font-style: normal; }
-    .Benefits-cell--clients {
-      color: white;
-      background: #003912; }
-    .Benefits-cell--invoices {
-      color: #003912;
-      background: #00C16B; }
-    .Benefits-cell--global {
-      color: #4D1727;
-      background: #FFD3E2; }
-    .Benefits-cell--focus {
-      color: white;
-      background: #FF7640; }
 
 .Slides {
   max-width: 980px;
