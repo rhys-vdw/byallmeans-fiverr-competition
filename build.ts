@@ -9,6 +9,15 @@ import constants from "./constants.json"
 const { inlineSVG } = require("handlebars-helper-inlinesvg");
 const md = new Remarkable()
 
+let isDevelopment: boolean;
+switch (process.env.NODE_ENV) {
+  case 'development': isDevelopment = true; break;
+  case 'production': isDevelopment = false; break;
+  default:
+    console.error(`Unpexcted NODE_ENV value '${process.env.NODE_ENV}'`);
+    process.exit(1);
+}
+
 const data = {
   ...constants,
   currentYear: new Date().getFullYear(),
@@ -111,13 +120,17 @@ async function build() {
   await copyStaticAssets()
   await compileSass()
 
-  const cnameSource = path.join(__dirname, "CNAME");
-  if (fs.existsSync(cnameSource)) {
-    console.log("Copying CNAME")
-    await fs.promises.copyFile(
-      cnameSource,
-      path.join(destRoot, "CNAME")
-    )
+  if (isDevelopment) {
+    console.log("Skipping CNAME");
+  } else {
+    const cnameSource = path.join(__dirname, "CNAME");
+    if (fs.existsSync(cnameSource)) {
+      console.log("Copying CNAME")
+      await fs.promises.copyFile(
+        cnameSource,
+        path.join(destRoot, "CNAME")
+      )
+    }
   }
 
   console.log("Done!")

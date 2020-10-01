@@ -13,6 +13,7 @@
     "@types/node-sass": "^4.11.1",
     "@types/remarkable": "^1.7.4",
     "@types/shelljs": "^0.8.8",
+    "cross-env": "^7.0.2",
     "gh-pages": "^3.1.0",
     "handlebars": "^4.7.6",
     "handlebars-helper-inlinesvg": "^1.0.4",
@@ -40,9 +41,11 @@
   },
   "scripts": {
     "build": "ts-node build.ts",
+    "build:production": "cross-env NODE_ENV=production npm run build",
+    "build:development": "cross-env NODE_ENV=development npm run build",
     "view": "npm run build && cd build && http-server",
-    "deploy-production": "yarn run build && gh-pages -o origin -d build",
-    "deploy-staging": "yarn run build && gh-pages -o staging -d build",
+    "deploy:production": "build:production && gh-pages -o origin -d build",
+    "deploy:staging": "build:development && gh-pages -o staging -d build",
     "watch": "npm-watch"
   }
 }
