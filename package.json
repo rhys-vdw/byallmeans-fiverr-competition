@@ -20,6 +20,7 @@
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "npm-watch": "^0.7.0",
+    "prettier": "^2.1.2",
     "remarkable": "^1.7.4",
     "shelljs": "^0.8.4",
     "ts-node": "^9.0.0",
