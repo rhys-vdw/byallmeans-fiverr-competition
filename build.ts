@@ -93,7 +93,7 @@ async function generatePages(): Promise<void> {
 
 const staticRoot = "./src/static"
 async function copyStaticAssets(): Promise<void> {
-  await shell.cp("-r", `${staticRoot}/**/*`, path.join(destRoot, 'static'))
+  await shell.cp("-r", staticRoot, destRoot)
 }
 
 async function build() {
