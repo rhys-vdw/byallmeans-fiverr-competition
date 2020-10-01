@@ -52,9 +52,12 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  font-weight: bold;
+.Anchor, a {
   color: inherit;
+  text-decoration: underline;
+  font-weight: bold;
+  font-family: Macan;
+  font-style: normal;
 }
 
 h1 {
@@ -275,11 +278,12 @@ small {
     }
   }
 
-  &--winAPod &-feature {
+  &-feature {
+    display: block;
     text-align: center;
     padding: 47px 68px 54px 68px;
 
-    border: 6px solid $color-green;
+    border: 6px solid black;
     border-radius: 6px;
 
     font-family: "Domaine Display";
@@ -287,14 +291,14 @@ small {
     font-weight: 500;
     font-size: 32px;
     line-height: 120%;
+    text-decoration: none;
 
     @include mobile-content {
       font-size: 24px;
       padding: 27px 24px;
     }
 
-    strong {
-      color: $color-green;
+    strong, a, .Anchor {
       font-family: Macan;
       font-weight: bold;
       font-style: normal;
@@ -302,42 +306,22 @@ small {
     }
   }
 
-  &--becomeASeller1, &--becomeASeller2 {
-    @include desktop-content {
-      .Section-content {
-        max-width: 800px;
-      }
-    }
+  &--winAPod &-feature {
+    border-color: $color-green;
+    strong { color: $color-green; }
   }
 
-  &--becomeASeller1 {
-    h1 {
-      @include heading($color-green-dark, $color-green);
-      text-align: center;
-      margin-left: -$mobile-gutter;
-      margin-right: -$mobile-gutter;
-      margin-bottom: 50px;
-      @include mobile-content {
-        padding: 0 $mobile-gutter;
-      }
-    }
-    color: $color-green-dark;
-  }
-
-  &--becomeASeller2, &--thePrize {
-    background-color: $color-green;
-    color: $color-green-dark;
-    padding-bottom: $section-spacing;
-
-    .Section-centeredText {
-      margin-top: 50px;
-      @include mobile-content() {
-        margin-bottom: 30px;
-      }
-    }
+  &--form &-feature {
+    border-color: $color-pink-medium;
+    strong, a, .Anchor { color: $color-pink-medium; }
   }
 
   &--thePrize {
+    background-color: $color-green;
+    color: $color-green-dark;
+    padding-bottom: $section-spacing;
+    padding-top: $section-spacing;
+
     @include mobile-content {
       text-align: center;
     }
@@ -346,6 +330,7 @@ small {
       margin-bottom: 10px;
     }
   }
+
   &--thePrize &-content {
     display: flex;
     flex-direction: row;
@@ -416,27 +401,13 @@ small {
     }
   }
 
-  &--howToEnter {
-    background: $color-green;
-    color: $color-green-dark;
-    padding-bottom: 83px;
-    .Section-content {
-      max-width: 830px;
-    }
-    h1 {
-      @include heading($color-green-dark, $color-white);
-      text-align: center;
-      margin-bottom: 67px;
-    }
-  }
-
   &--form {
     padding-top: 120px;
     padding-bottom: 233px;
     color: $color-pink-dark;
     background: $color-pink-light;
 
-    .Section-content {
+    .Section-form {
       width: 580px;
       max-width: 100%;
     }
@@ -445,85 +416,18 @@ small {
       padding-top: 100px;
     }
 
+    .Section-content {
+      margin-bottom: 60px;
+    }
+
     h1 {
       @include heading($color-pink-medium, $color-pink-dark);
-      margin-bottom: 130px;
+      margin-bottom: 60px;
       text-align: center;
       @include mobile-content() {
         margin-bottom: 50px;
       }
     }
-  }
-}
-
-.Steps {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-
-  @include mobile-content() {
-    flex-direction: column;
-    max-width: 270px;
-    > div {
-      width: 100%;
-    }
-  }
-
-  > div { // aspect ratio width
-    flex-grow: 1;
-    flex-shrink: 1;
-    &:not(:first-child) {
-      padding-left: 40px;
-      @include mobile-content() {
-        padding-left: 0;
-        padding-top: 30px;
-      }
-    }
-    > div { // aspect ratio height
-      white-space: normal;
-      background: $color-white;
-      overflow: hidden;
-
-      border-radius: 50%;
-      height: 0;
-      padding-top: 100%;
-
-      position: relative;
-      > div { // content
-        position: absolute;
-        left: 15%;
-        right: 15%;
-        top: 15%;
-        bottom: 15%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-  &-number, &-text {
-    height: 50%;
-  }
-  &-number {
-    font-family: "Domaine Display";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 60px;
-    line-height: 100%;
-
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-  }
-  &-text {
-    text-align: center;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 120%;
   }
 }
 
@@ -632,72 +536,6 @@ small {
   &-input:focus+&-checkbox, &-checkbox:focus {
     border: 2px solid $color-pink;
     outline: none;
-  }
-}
-
-.Benefits {
-  display: flex;
-
-  @include mobile-content() {
-    flex-direction: column;
-    align-items: stretch;
-    margin: auto;
-    .Benefits-cell {
-      width: 100%;
-    }
-  }
-
-  &-cell {
-    width: 50%;
-
-    text-align: center;
-
-    font-family: "Domaine Display";
-    font-style: italic;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 120%;
-
-    > div {
-      padding-top: 100%;
-      position: relative;
-
-      > div {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-
-        // Center text.
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-
-    strong {
-      font-family: Macan;
-      font-weight: bold;
-      font-style: normal;
-    }
-
-    &--clients {
-      color: white;
-      background: $color-green-dark;
-    }
-    &--invoices {
-      color: $color-green-dark;
-      background: $color-green;
-    }
-    &--global {
-      color: $color-pink-dark;
-      background: $color-pink-light;
-    }
-    &--focus {
-      color: white;
-      background: $color-orange;
-    }
   }
 }
 
