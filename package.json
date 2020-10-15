@@ -43,7 +43,7 @@
     "build": "ts-node build.ts",
     "build:production": "cross-env NODE_ENV=production npm run build",
     "build:development": "cross-env NODE_ENV=development npm run build",
-    "view": "npm run build && cd build && http-server",
+    "view": "cd build && http-server",
     "deploy:production": "npm run build:production && gh-pages -o origin -d build",
     "deploy:staging": "npm run build:development && gh-pages -o staging -d build",
     "watch": "npm-watch"
